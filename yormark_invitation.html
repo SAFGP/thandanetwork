@@ -471,6 +471,138 @@ img, video { display: block; max-width: 100%; height: auto; }
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   Video embed
+   ═══════════════════════════════════════════════════════════════ */
+.video-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+  overflow: hidden;
+  border: 1px solid var(--hair);
+  border-radius: 2px;
+  box-shadow:
+    inset 0 0 0 1px rgba(205,170,139,0.03),
+    0 40px 80px -40px rgba(0,0,0,0.7),
+    0 2px 8px -2px rgba(205,170,139,0.06);
+  transition: box-shadow 480ms var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .video-wrap:hover {
+    box-shadow:
+      inset 0 0 0 1px rgba(205,170,139,0.10),
+      0 48px 96px -40px rgba(0,0,0,0.75),
+      0 2px 12px -2px rgba(205,170,139,0.12);
+  }
+}
+.video-wrap video,
+.video-wrap iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 0;
+  animation: video-cinematic-in 900ms var(--ease-out) both;
+}
+@keyframes video-cinematic-in {
+  from { opacity: 0; transform: scale(1.035); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.video-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background-color: #0E0E0E;
+  background-size: cover;
+  background-position: center center;
+  color: var(--fg);
+  text-align: center;
+  padding: 24px;
+  cursor: pointer;
+  overflow: hidden;
+  animation: ken-burns 32s var(--ease-in-out) infinite alternate;
+  transition:
+    opacity 380ms var(--ease-out),
+    filter 380ms var(--ease-out);
+  will-change: transform, opacity, filter;
+}
+@keyframes ken-burns {
+  from { background-size: 104% auto; background-position: 50% 48%; }
+  to   { background-size: 112% auto; background-position: 52% 54%; }
+}
+.video-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(10,10,10,.55) 0%, rgba(10,10,10,.3) 50%, rgba(10,10,10,.65) 100%),
+    radial-gradient(ellipse at center, transparent 0%, rgba(10,10,10,.4) 100%);
+  pointer-events: none;
+  z-index: 0;
+  transition: background 380ms var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .video-placeholder:hover::before {
+    background:
+      linear-gradient(135deg, rgba(10,10,10,.4) 0%, rgba(10,10,10,.2) 50%, rgba(10,10,10,.5) 100%),
+      radial-gradient(ellipse at center, transparent 0%, rgba(10,10,10,.3) 100%);
+  }
+}
+.video-placeholder > * { position: relative; z-index: 1; }
+.video-placeholder.is-loading {
+  opacity: 0;
+  pointer-events: none;
+}
+.play-btn {
+  width: 84px; height: 84px;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  background: rgba(205,170,139,.06);
+  display: grid; place-items: center;
+  cursor: pointer;
+  position: relative;
+  transition:
+    transform var(--t-fast) var(--ease-out),
+    background var(--t-ui) var(--ease-out),
+    border-color var(--t-ui) var(--ease-out);
+}
+.play-btn::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  opacity: 0;
+  transform: scale(0.92);
+  animation: play-breathe 3.2s var(--ease-in-out) infinite;
+  pointer-events: none;
+}
+@keyframes play-breathe {
+  0%   { opacity: 0;    transform: scale(0.92); }
+  50%  { opacity: 0.35; transform: scale(1); }
+  100% { opacity: 0;    transform: scale(1.08); }
+}
+.play-btn:active { transform: scale(0.97); }
+.play-btn svg { display: block; margin-left: 4px; transition: transform var(--t-ui) var(--ease-out); }
+@media (hover: hover) and (pointer: fine) {
+  .play-btn:hover {
+    background: rgba(205,170,139,.14);
+    border-color: #FFFFFF;
+  }
+  .play-btn:hover svg { transform: scale(1.08); }
+}
+.video-label {
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 450;
+  color: var(--gold);
+}
+
+/* ═══════════════════════════════════════════════════════════════
    Quote-lead (used in section heads)
    ═══════════════════════════════════════════════════════════════ */
 .quote-lead {
@@ -837,6 +969,8 @@ img, video { display: block; max-width: 100%; height: auto; }
     opacity: 1 !important;
     transform: none !important;
   }
+  .video-placeholder { animation: none !important; background-size: cover !important; }
+  .play-btn::before { animation: none !important; }
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -1022,6 +1156,33 @@ img, video { display: block; max-width: 100%; height: auto; }
 
 
 <!-- ═══════════════════════════════════════════════════════════════
+     HERITAGE FILM
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="sec tight" style="background: linear-gradient(180deg, #0A0A0A 0%, #0E0E0E 100%);" aria-label="Heritage Film">
+  <div class="container">
+    <div style="text-align:center; max-width: 720px; margin: 0 auto 56px;">
+      <div class="eyebrow" data-rv>Heritage Film</div>
+      <h2 class="display h2" data-rv style="--d:60ms; margin-top:14px;">A <em>cinematic</em> portrait.</h2>
+    </div>
+
+    <div class="video-wrap" data-rv-scale style="--d:180ms"
+         data-vimeo-id="1184615072"
+         data-vimeo-hash="ad95609d61">
+      <div class="video-placeholder" style="background-image: url('thanda-royal-residence.jpg');">
+        <div class="video-label">Heritage Film</div>
+        <button class="play-btn" aria-label="Play heritage film">
+          <svg width="22" height="26" viewBox="0 0 22 26" fill="none" aria-hidden="true">
+            <path d="M21 13L0 25.9904V0.00961995L21 13Z" fill="#CDAA8B"/>
+          </svg>
+        </button>
+        <div class="caption" style="color:rgba(255,255,255,.72)">Three minutes &middot; Shot on location at Thanda</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
      PULLQUOTE
      ═══════════════════════════════════════════════════════════════ -->
 <aside class="pullquote" aria-label="Pullquote">
@@ -1072,6 +1233,36 @@ img, video { display: block; max-width: 100%; height: auto; }
     <span>Architecture by Robert Adamson</span>
   </figcaption>
 </figure>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     EXPERIENCE FILM
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="sec tight" style="background: linear-gradient(180deg, #0A0A0A 0%, #0E0E0E 100%);" aria-label="A day at Thanda">
+  <div class="container">
+    <div style="text-align:center; max-width: 720px; margin: 0 auto 56px;">
+      <div class="eyebrow" data-rv>A Day at Thanda</div>
+      <h2 class="display h2" data-rv style="--d:60ms; margin-top:14px;">From sunrise to <em>silence</em>.</h2>
+      <p class="body" data-rv style="--d:120ms; margin: 20px auto 0;">
+        Morning game drive, breakfast on the deck, conservation tracking, long afternoon stillness, dinner under a Zululand sky.
+      </p>
+    </div>
+
+    <div class="video-wrap" data-rv-scale style="--d:180ms"
+         data-vimeo-id="1184615098"
+         data-vimeo-hash="0b045fa5ac">
+      <div class="video-placeholder" style="background-image: url('cover-game-drive.jpg');">
+        <div class="video-label">Experience Film</div>
+        <button class="play-btn" aria-label="Play experience film">
+          <svg width="22" height="26" viewBox="0 0 22 26" fill="none" aria-hidden="true">
+            <path d="M21 13L0 25.9904V0.00961995L21 13Z" fill="#CDAA8B"/>
+          </svg>
+        </button>
+        <div class="caption" style="color:rgba(255,255,255,.72)">A day at Thanda &middot; Game drives, conservation, stillness</div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 <!-- ═══════════════════════════════════════════════════════════════
@@ -1316,6 +1507,116 @@ img, video { display: block; max-width: 100%; height: auto; }
     }, { passive: true });
     updateProgress();
   }
+
+  /* -----------------------------------------------------------
+     Vimeo click-to-load — swap placeholder for iframe only when
+     the user presses play. Uses Vimeo Player API to detect the
+     `ended` event and replace the end-screen "Up Next" overlay
+     with our own clean re-play state.
+     ----------------------------------------------------------- */
+  let vimeoApiLoading = null;
+  const ensureVimeoApi = () => {
+    if (window.Vimeo && window.Vimeo.Player) return Promise.resolve();
+    if (vimeoApiLoading) return vimeoApiLoading;
+    vimeoApiLoading = new Promise((resolve, reject) => {
+      const s = document.createElement('script');
+      s.src = 'https://player.vimeo.com/api/player.js';
+      s.onload = resolve;
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+    return vimeoApiLoading;
+  };
+
+  const buildIframe = (wrap) => {
+    const id = wrap.dataset.vimeoId;
+    const hash = wrap.dataset.vimeoHash;
+    const params = new URLSearchParams({
+      h: hash || '',
+      dnt: '1',
+      title: '0',
+      byline: '0',
+      portrait: '0',
+      color: 'CDAA8B',
+      autoplay: '1',
+      responsive: '1',
+      transparent: '0',
+      pip: '1'
+    });
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://player.vimeo.com/video/${id}?${params.toString()}`;
+    iframe.setAttribute('frameborder', '0');
+    iframe.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture; clipboard-write');
+    iframe.setAttribute('allowfullscreen', '');
+    iframe.setAttribute('title', wrap.querySelector('.video-label')?.textContent || 'Film');
+    return iframe;
+  };
+
+  const attachEndHandler = (wrap, iframe, savedPlaceholderHTML) => {
+    ensureVimeoApi().then(() => {
+      const player = new Vimeo.Player(iframe);
+      player.on('ended', () => {
+        iframe.style.transition = 'opacity 240ms ease';
+        iframe.style.opacity = '0';
+        setTimeout(() => {
+          player.destroy().catch(() => {});
+          iframe.remove();
+          wrap.insertAdjacentHTML('beforeend', savedPlaceholderHTML);
+          const newPlaceholder = wrap.querySelector('.video-placeholder');
+          if (newPlaceholder) {
+            newPlaceholder.style.opacity = '0';
+            newPlaceholder.classList.remove('is-loading');
+            requestAnimationFrame(() => {
+              newPlaceholder.style.transition = 'opacity 380ms ease';
+              newPlaceholder.style.opacity = '1';
+            });
+            wirePlaceholder(wrap, newPlaceholder);
+          }
+        }, 240);
+      });
+    }).catch((err) => {
+      console.warn('Vimeo API load failed, end-screen will show default:', err);
+    });
+  };
+
+  const loadVimeo = (wrap) => {
+    if (!wrap.dataset.vimeoId) return;
+    const placeholder = wrap.querySelector('.video-placeholder');
+    const savedHTML = placeholder ? placeholder.outerHTML : '';
+    const iframe = buildIframe(wrap);
+    if (placeholder) {
+      placeholder.classList.add('is-loading');
+      setTimeout(() => {
+        placeholder.remove();
+        wrap.appendChild(iframe);
+        attachEndHandler(wrap, iframe, savedHTML);
+      }, 180);
+    } else {
+      wrap.appendChild(iframe);
+      attachEndHandler(wrap, iframe, savedHTML);
+    }
+  };
+
+  const wirePlaceholder = (wrap, placeholder) => {
+    placeholder.addEventListener('click', (e) => {
+      e.preventDefault();
+      loadVimeo(wrap);
+    });
+    const btn = placeholder.querySelector('.play-btn');
+    if (btn) {
+      btn.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          loadVimeo(wrap);
+        }
+      });
+    }
+  };
+
+  document.querySelectorAll('.video-wrap[data-vimeo-id]').forEach(wrap => {
+    const placeholder = wrap.querySelector('.video-placeholder');
+    if (placeholder) wirePlaceholder(wrap, placeholder);
+  });
 })();
 </script>
 </body>
