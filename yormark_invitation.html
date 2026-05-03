@@ -822,10 +822,7 @@ img, video { display: block; max-width: 100%; height: auto; }
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('thanda-closing.png');
-  background-size: cover;
-  background-position: center;
-  opacity: 0.28;
+  background: #0A0A0A;
   z-index: 0;
 }
 .closing-section::after {
@@ -981,6 +978,93 @@ img, video { display: block; max-width: 100%; height: auto; }
   .signature { flex-direction: column; align-items: flex-start; gap: 6px; }
   .cover-footer-right { text-align: left; }
   .signatures-row { gap: 32px; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   READABILITY OVERRIDE
+   All body text full white at 100% opacity. No scroll fades. No
+   overlay on the closing section.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Kill every scroll-driven reveal animation outright */
+[data-rv],
+[data-rv-clip],
+[data-rv-scale] {
+  opacity: 1 !important;
+  transform: none !important;
+  clip-path: none !important;
+  filter: none !important;
+  animation: none !important;
+}
+
+/* Kill the hero stagger so cover text is visible from the first paint */
+.hero-brand-row,
+.hero-meta,
+.hero-eyebrow,
+.cover-address,
+.hero-title,
+.cover-date-band,
+.hero-bottom > *,
+.hero-bottom > .caption {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Force all body / caption / signature text to pure white */
+body,
+.body,
+.body.body-lead,
+.body.body-muted,
+.body strong,
+.caption,
+.experience-body,
+.day-body,
+.day-meta,
+.cover-address,
+.cover-footer-left,
+.cover-footer-right,
+.cover-footer-label,
+.hero-subtitle,
+.hero-meta,
+.signature-name,
+.rsvp-body,
+.rsvp-body p,
+.rsvp-body a,
+.colophon,
+.bleed-cap,
+.stat-desc,
+.pullquote-quote,
+.closing-line,
+.day-name,
+figcaption {
+  color: #FFFFFF !important;
+}
+
+/* Heavier body weight for readability (was 300 light) */
+body {
+  font-weight: 400;
+}
+.body,
+.body.body-lead,
+.experience-body,
+.day-body,
+.rsvp-body,
+.cover-address,
+.hero-subtitle {
+  font-weight: 400 !important;
+}
+
+/* Stop the closing section from sitting under a dark image and overlay */
+.closing-section::before { display: none !important; }
+.closing-section::after  { display: none !important; }
+.closing-section {
+  background: #0A0A0A;
+}
+
+/* Make link underlines on the RSVP block fully visible */
+.rsvp-body a {
+  border-bottom-color: #CDAA8B !important;
 }
 </style>
 </head>
