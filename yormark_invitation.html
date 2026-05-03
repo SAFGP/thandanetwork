@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Private Invitation · The Yormark Family · Thanda</title>
+<meta name="description" content="A private invitation to Michael, Dana and Sophia Yormark for three nights at Thanda, in northern KwaZulu-Natal, 16 to 19 May 2026.">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="A Private Invitation · The Yormark Family · Thanda">
+<meta property="og:description" content="Three nights at Thanda, in northern KwaZulu-Natal, 16 to 19 May 2026. In confidence.">
+<meta property="og:image" content="villa-t.jpg">
+<meta property="og:site_name" content="South Africa | Forbes Global Properties">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="A Private Invitation · The Yormark Family · Thanda">
+<meta name="twitter:description" content="Three nights at Thanda, in northern KwaZulu-Natal, 16 to 19 May 2026.">
+<meta name="twitter:image" content="villa-t.jpg">
+
+<meta name="theme-color" content="#0A0A0A">
+
+<!-- Favicon (inline SVG, champagne monogram on bg) -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230A0A0A'/%3E%3Ctext x='50%25' y='58%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='20' font-style='italic' fill='%23CDAA8B'%3ET%3C/text%3E%3Crect x='0' y='0' width='32' height='2' fill='%23C8352E'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   Local fonts (FreightNeo)
+   ═══════════════════════════════════════════════════════════════ */
+@font-face {
+  font-family: 'FreightNeo';
+  src: url('FreightNeo-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'FreightNeo';
+  src: url('FreightNeo-Book.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'FreightNeo';
+  src: url('FreightNeo-Semi.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Design tokens
+   ═══════════════════════════════════════════════════════════════ */
+:root {
+  /* Palette */
+  --bg: #0A0A0A;
+  --bg-soft: #121212;
+  --fg: #FFFFFF;
+  --fg-muted: rgba(255,255,255,.72);
+  --fg-dim: rgba(255,255,255,.5);
+  --fg-faint: rgba(255,255,255,.3);
+  --fg-slate: #8A8F96;
+  --fg-slate-dim: #6D7178;
+  --gold: #CDAA8B;
+  --gold-soft: rgba(205,170,139,.22);
+  --red: #C8352E;
+  --hair: rgba(255,255,255,.06);
+  --hair-gold: rgba(205,170,139,.28);
+
+  /* Easing */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+
+  /* Timing */
+  --t-fast: 160ms;
+  --t-ui: 220ms;
+  --t-reveal: 820ms;
+  --t-clip: 1100ms;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Reset / base
+   ═══════════════════════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Work Sans', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  font-variant-numeric: tabular-nums;
+}
+
+img, video { display: block; max-width: 100%; height: auto; }
+
+/* Global focus ring */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+*:focus:not(:focus-visible) { outline: none; }
+
+.skip-link {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 1000;
+  padding: 10px 18px;
+  background: var(--bg);
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-family: 'Work Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 450;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transform: translateY(-140%);
+  transition: transform var(--t-ui) var(--ease-out);
+}
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  opacity: 0.22;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.85 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+.progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  width: 100%;
+  transform-origin: left center;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, var(--red) 0%, var(--gold) 100%);
+  z-index: 998;
+  transition: transform 80ms linear;
+  will-change: transform;
+}
+
+.display, .quote-lead, .hero-title, .hero-subtitle {
+  text-wrap: balance;
+}
+.body {
+  text-wrap: pretty;
+}
+.tnum {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1, 'lnum' 1;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Typography
+   ═══════════════════════════════════════════════════════════════ */
+.display {
+  font-family: 'FreightNeo', Georgia, serif;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+}
+.display em { font-style: italic; color: var(--gold); }
+
+.h1 { font-size: clamp(56px, 11vw, 128px); }
+.h2 { font-size: clamp(40px, 7.5vw, 82px); line-height: 1.05; letter-spacing: -0.015em; }
+.h3 { font-size: clamp(28px, 4.5vw, 48px); line-height: 1.15; }
+.h4 { font-size: clamp(22px, 3vw, 32px); line-height: 1.2; font-weight: 300; }
+
+.eyebrow {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 450;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.body {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 300;
+  font-size: clamp(16px, 1.3vw, 18px);
+  line-height: 1.75;
+  color: var(--fg-muted);
+  max-width: 62ch;
+}
+.body.tight { max-width: 52ch; }
+.body strong { color: var(--fg); font-weight: 500; }
+.body.body-lead {
+  font-size: clamp(18px, 1.5vw, 21px);
+  color: #FFFFFF;
+  font-weight: 400;
+  line-height: 1.65;
+}
+.body.body-muted { color: rgba(255,255,255,.5); }
+
+.caption {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--fg-dim);
+  line-height: 1.55;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Layout primitives
+   ═══════════════════════════════════════════════════════════════ */
+.sec {
+  position: relative;
+  padding: clamp(96px, 14vh, 180px) clamp(28px, 6vw, 96px);
+}
+.sec.tight { padding: clamp(72px, 10vh, 120px) clamp(28px, 6vw, 96px); }
+.sec.edge-rule::before {
+  content: '';
+  position: absolute;
+  top: 0; left: clamp(28px, 6vw, 96px); right: clamp(28px, 6vw, 96px);
+  height: 1px;
+  background: var(--hair);
+}
+.container { max-width: 1560px; margin: 0 auto; }
+.container-data { max-width: 1000px; margin: 0 auto; }
+.container-text { max-width: 720px; margin: 0 auto; }
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+}
+@media (min-width: 900px) {
+  .grid-2 { grid-template-columns: 1fr 1fr; gap: clamp(48px, 6vw, 96px); }
+  .grid-2.align-center { align-items: center; }
+}
+.stack-sm > * + * { margin-top: 14px; }
+.stack-md > * + * { margin-top: 24px; }
+.stack-lg > * + * { margin-top: 40px; }
+.stack-xl > * + * { margin-top: 64px; }
+
+/* ═══════════════════════════════════════════════════════════════
+   Reveal animations
+   ═══════════════════════════════════════════════════════════════ */
+@supports (animation-timeline: view()) {
+  [data-rv] {
+    animation: rv-rise linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 28%;
+  }
+  [data-rv-clip] {
+    animation: rv-unmask linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 24%;
+  }
+  [data-rv-scale] {
+    animation: rv-scale linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+  }
+}
+
+@keyframes rv-rise {
+  from { opacity: 0; transform: translate3d(0, 28px, 0); }
+  to   { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+@keyframes rv-unmask {
+  from { opacity: 0; clip-path: inset(0 0 96% 0); }
+  to   { opacity: 1; clip-path: inset(0 0 0 0); }
+}
+@keyframes rv-scale {
+  from { opacity: 0; transform: scale(0.965); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@supports (animation-timeline: view()) {
+  [data-rv][style*="--d"]       { animation-range: calc(entry 0% + var(--d, 0ms) * 0.1) cover 28%; }
+  [data-rv-scale][style*="--d"] { animation-range: calc(entry 0% + var(--d, 0ms) * 0.1) cover 30%; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Hero page-load stagger
+   ═══════════════════════════════════════════════════════════════ */
+@keyframes hero-rise {
+  from { opacity: 0; transform: translate3d(0, 18px, 0); }
+  to   { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+@keyframes hero-title-rise {
+  from { opacity: 0; transform: translate3d(0, 32px, 0); letter-spacing: -0.015em; }
+  to   { opacity: 1; transform: translate3d(0, 0, 0);    letter-spacing: -0.025em; }
+}
+.hero-brand-row,
+.hero-meta,
+.hero-eyebrow,
+.cover-address,
+.hero-title,
+.cover-date-band,
+.hero-bottom > *,
+.hero-bottom > .caption,
+.hero-bottom > .scroll-cue {
+  animation: hero-rise 900ms var(--ease-out) both;
+}
+.hero-brand-row  { animation-delay: 120ms; }
+.hero-meta       { animation-delay: 200ms; }
+.hero-eyebrow    { animation-delay: 320ms; }
+.cover-address   { animation-delay: 440ms; }
+.hero-title      { animation: hero-title-rise 1200ms var(--ease-out) 560ms both; }
+.cover-date-band { animation-delay: 880ms; }
+.hero-bottom > .cover-footer-left  { animation-delay: 1040ms; }
+.hero-bottom > .cover-footer-right { animation-delay: 1120ms; }
+
+/* ═══════════════════════════════════════════════════════════════
+   HERO / COVER
+   ═══════════════════════════════════════════════════════════════ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(28px, 4vw, 56px) clamp(28px, 6vw, 96px);
+  overflow: hidden;
+  background: #000;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('cover-game-drive.jpg');
+  background-size: cover;
+  background-position: center 40%;
+  transform: scale(1.05);
+  transform-origin: center;
+  filter: brightness(0.72) saturate(1.05);
+  z-index: 0;
+  will-change: transform;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(10,10,10,.6) 0%, rgba(10,10,10,.2) 35%, rgba(10,10,10,.4) 65%, rgba(10,10,10,.95) 100%),
+    radial-gradient(ellipse at 50% 50%, transparent 40%, rgba(10,10,10,.4) 100%);
+  z-index: 1;
+}
+.hero > * { position: relative; z-index: 2; }
+.hero-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+.hero-brand-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.hero-brand-row img { opacity: 0.92; }
+.hero-brand-row .divider {
+  width: 1px;
+  height: 28px;
+  background: var(--gold);
+  opacity: 0.35;
+}
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.hero-meta .dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 4px rgba(205,170,139,.15);
+}
+.hero-center {
+  max-width: 1040px;
+  margin: auto 0;
+  padding-top: 8vh;
+}
+.hero-eyebrow { margin-bottom: 22px; display: inline-block; }
+.cover-address {
+  font-family: 'FreightNeo', Georgia, serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(20px, 2.3vw, 28px);
+  line-height: 1.45;
+  color: rgba(255,255,255,.88);
+  margin-bottom: 28px;
+  max-width: 720px;
+}
+.hero-title {
+  font-size: clamp(58px, 12vw, 168px);
+  line-height: 0.94;
+  letter-spacing: -0.025em;
+}
+.cover-date-band {
+  margin-top: clamp(28px, 4vh, 44px);
+  padding-top: 22px;
+  border-top: 1px solid rgba(205,170,139,.28);
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: clamp(16px, 3vw, 28px);
+  max-width: 720px;
+}
+.cover-date {
+  font-family: 'FreightNeo', Georgia, serif;
+  font-weight: 300;
+  font-size: clamp(22px, 2.6vw, 32px);
+  letter-spacing: -0.01em;
+  color: #FFFFFF;
+  line-height: 1.1;
+}
+.cover-date-meta {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 450;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #CDAA8B;
+}
+.hero-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.cover-footer-left,
+.cover-footer-right {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 12.5px;
+  font-weight: 400;
+  color: rgba(255,255,255,.85);
+  letter-spacing: 0.02em;
+  line-height: 1.7;
+}
+.cover-footer-right { text-align: right; }
+.cover-footer-label {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: 450;
+  color: rgba(255,255,255,.5);
+  margin-bottom: 6px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Quote-lead (used in section heads)
+   ═══════════════════════════════════════════════════════════════ */
+.quote-lead {
+  font-family: 'FreightNeo', Georgia, serif;
+  font-weight: 300;
+  font-size: clamp(30px, 4.2vw, 52px);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  max-width: 22ch;
+}
+.quote-lead em { font-style: italic; color: var(--gold); }
+
+/* ═══════════════════════════════════════════════════════════════
+   Signature block
+   ═══════════════════════════════════════════════════════════════ */
+.signature {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.signature-name {
+  font-family: 'FreightNeo', Georgia, serif;
+  font-size: 18px;
+  color: var(--fg);
+}
+.signature-title {
+  font-size: 12px;
+  color: var(--gold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* Letter signatures — two side by side under a single rule */
+.signatures-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(32px, 5vw, 64px);
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(205,170,139,.28);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Stats strip
+   ═══════════════════════════════════════════════════════════════ */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 2px;
+  background: var(--hair);
+  border-top: 1px solid var(--hair);
+  border-bottom: 1px solid var(--hair);
+}
+.stat {
+  background: var(--bg);
+  padding: clamp(36px, 5vw, 56px) clamp(20px, 3vw, 36px);
+}
+.stat-num {
+  font-family: 'FreightNeo', Georgia, serif;
+  font-weight: 300;
+  font-size: clamp(44px, 6vw, 72px);
+  line-height: 1;
+  color: var(--fg);
+  letter-spacing: -0.02em;
+}
+.stat-label {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: 450;
+  color: var(--gold);
+  margin-top: 14px;
+}
+.stat-desc {
+  font-size: 13px;
+  color: var(--fg-dim);
+  margin-top: 8px;
+  line-height: 1.5;
+  max-width: 28ch;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Pullquote (between sections)
+   ═══════════════════════════════════════════════════════════════ */
+.pullquote {
+  position: relative;
+  padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 96px);
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,.06);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  background: linear-gradient(180deg, #0E0E0E 0%, #0A0A0A 100%);
+}
+.pullquote::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  width: 48px; height: 2px;
+  background: #C8352E;
+  transform: translateX(-50%);
+}
+.pullquote-quote {
+  font-family: 'FreightNeo', Georgia, serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(26px, 4vw, 44px);
+  line-height: 1.3;
+  color: #FFFFFF;
+  letter-spacing: -0.005em;
+  max-width: 920px;
+  margin: 0 auto;
+  text-wrap: balance;
+}
+.pullquote-attribution {
+  margin-top: 36px;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: 450;
+  color: #CDAA8B;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Experience block — labelled paragraph group
+   ═══════════════════════════════════════════════════════════════ */
+.experience-block + .experience-block {
+  margin-top: clamp(48px, 6vh, 72px);
+}
+.experience-label {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: 450;
+  color: #CDAA8B;
+}
+.experience-rule {
+  width: 64px;
+  height: 1px;
+  background: rgba(205,170,139,.28);
+  margin: 14px 0 24px;
+}
+.experience-body {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 300;
+  font-size: clamp(15px, 1.2vw, 17px);
+  line-height: 1.75;
+  color: rgba(255,255,255,.72);
+  max-width: 62ch;
+}
+.experience-body + .experience-body {
+  margin-top: 18px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Day list (suggested shape)
+   ═══════════════════════════════════════════════════════════════ */
+.day-list {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid rgba(255,255,255,.06);
+  margin-top: 56px;
+}
+.day-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  padding: clamp(28px, 4vw, 44px) 0;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  align-items: baseline;
+}
+@media (min-width: 820px) {
+  .day-row {
+    grid-template-columns: 280px 1fr;
+    gap: clamp(40px, 5vw, 80px);
+  }
+}
+.day-name {
+  font-family: 'FreightNeo', Georgia, serif;
+  font-weight: 300;
+  font-size: clamp(24px, 3vw, 32px);
+  line-height: 1.15;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+}
+.day-meta {
+  margin-top: 10px;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: 450;
+  color: #CDAA8B;
+}
+.day-body {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 300;
+  font-size: clamp(15px, 1.2vw, 17px);
+  line-height: 1.75;
+  color: rgba(255,255,255,.78);
+}
+.day-body + .day-body {
+  margin-top: 14px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Closing
+   ═══════════════════════════════════════════════════════════════ */
+.closing-section {
+  position: relative;
+  padding: clamp(96px, 14vh, 180px) clamp(28px, 6vw, 96px);
+  text-align: center;
+  overflow: hidden;
+}
+.closing-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('thanda-closing.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.28;
+  z-index: 0;
+}
+.closing-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10,10,10,.7) 0%, rgba(10,10,10,.55) 50%, rgba(10,10,10,.95) 100%);
+  z-index: 1;
+}
+.closing-section > * { position: relative; z-index: 2; }
+.closing-line {
+  font-family: 'FreightNeo', Georgia, serif;
+  font-weight: 300;
+  font-size: clamp(28px, 4.2vw, 54px);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  max-width: 920px;
+  margin: 32px auto 0;
+  color: #FFFFFF;
+  text-wrap: balance;
+}
+.closing-line em {
+  font-style: italic;
+  color: #CDAA8B;
+}
+.closing-signatures {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(40px, 6vw, 80px);
+  margin-top: clamp(56px, 8vh, 88px);
+  padding-top: 32px;
+  border-top: 1px solid rgba(205,170,139,.28);
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* RSVP block */
+.rsvp {
+  max-width: 640px;
+  margin: clamp(48px, 7vh, 80px) auto 0;
+  padding: clamp(28px, 4vw, 40px);
+  border: 1px solid rgba(205,170,139,.18);
+  background: rgba(18,18,18,.55);
+  backdrop-filter: blur(18px) saturate(1.15);
+  -webkit-backdrop-filter: blur(18px) saturate(1.15);
+  text-align: left;
+  box-shadow:
+    inset 0 1px 0 0 rgba(255,255,255,.06),
+    inset 0 0 0 1px rgba(205,170,139,.04),
+    0 24px 48px -24px rgba(0,0,0,.7),
+    0 2px 8px -2px rgba(205,170,139,.08);
+}
+.rsvp-label {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: 450;
+  color: #CDAA8B;
+  margin-bottom: 16px;
+}
+.rsvp-body {
+  font-family: 'FreightNeo', Georgia, serif;
+  font-weight: 300;
+  font-size: clamp(17px, 1.55vw, 20px);
+  line-height: 1.6;
+  color: #FFFFFF;
+}
+.rsvp-body p + p {
+  margin-top: 8px;
+}
+.rsvp-body a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(205,170,139,.28);
+  transition: color var(--t-ui) var(--ease-out), border-color var(--t-ui) var(--ease-out);
+}
+.rsvp-body a:hover {
+  color: #CDAA8B;
+  border-bottom-color: #CDAA8B;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Colophon
+   ═══════════════════════════════════════════════════════════════ */
+.colophon {
+  padding: 48px clamp(28px, 6vw, 96px) 40px;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,.06);
+  font-family: 'Work Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 450;
+  color: rgba(255,255,255,.5);
+  line-height: 1.9;
+}
+.colophon .divider-dot {
+  display: inline-block;
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: rgba(205,170,139,.4);
+  vertical-align: middle;
+  margin: 0 10px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Red accent line at section boundaries
+   ═══════════════════════════════════════════════════════════════ */
+.rl {
+  position: absolute;
+  top: 0; left: 0;
+  width: 48px; height: 2px;
+  background: var(--red);
+  z-index: 3;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Reduced motion
+   ═══════════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  [data-rv], [data-rv-scale] { opacity: 1 !important; transform: none !important; filter: none !important; }
+  [data-rv-clip] { clip-path: inset(0 0 0 0) !important; }
+  .hero::before,
+  .hero-brand-row,
+  .hero-meta,
+  .hero-eyebrow,
+  .cover-address,
+  .hero-title,
+  .cover-date-band,
+  .hero-bottom > * {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Responsive
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 720px) {
+  .hero-bottom { align-items: flex-start; }
+  .signature { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .cover-footer-right { text-align: left; }
+  .signatures-row { gap: 32px; }
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+<div class="grain" aria-hidden="true"></div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     COVER
+     ═══════════════════════════════════════════════════════════════ -->
+<header class="hero" id="top">
+  <div class="hero-top">
+    <div class="hero-brand-row">
+      <img src="logo-white.png" alt="South Africa | Forbes Global Properties" style="width:120px">
+      <span class="divider" aria-hidden="true"></span>
+      <img src="thada-logo.webp" alt="Thanda" style="width:56px">
+    </div>
+    <div class="hero-meta caption">
+      <span class="dot" aria-hidden="true"></span>
+      <span>By introduction only</span>
+    </div>
+  </div>
+
+  <div class="hero-center">
+    <p class="eyebrow hero-eyebrow">A Private Invitation</p>
+    <p class="cover-address">For Michael, Dana &amp; Sophia Yormark.<br>In confidence.</p>
+    <h1 class="display hero-title">Three nights at <em>Thanda.</em></h1>
+    <div class="cover-date-band">
+      <div class="cover-date">16 to 19 May, 2026</div>
+      <div class="cover-date-meta">KwaZulu-Natal &middot; South Africa</div>
+    </div>
+  </div>
+
+  <div class="hero-bottom">
+    <div class="cover-footer-left">
+      <div class="cover-footer-label">Hosted by</div>
+      <div>Pierre Delvaux &middot; Thanda</div>
+      <div>Keegan Steyn &middot; SA | FGP</div>
+    </div>
+    <div class="cover-footer-right">
+      <div class="cover-footer-label">Reference</div>
+      <div>TRTC &middot; Yormark &middot; 05.2026</div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SECTION I — THE LETTER
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="sec edge-rule" id="letter">
+  <span class="rl" aria-hidden="true"></span>
+  <div class="container">
+    <div class="grid-2 align-center">
+      <div>
+        <div class="eyebrow" data-rv>I &middot; The Letter</div>
+        <h2 class="display quote-lead" data-rv style="--d:80ms">
+          An <em>invitation,</em> not a proposal.
+        </h2>
+      </div>
+      <div class="stack-md">
+        <p class="body body-lead" data-rv style="--d:120ms">
+          Michael, Dana and Sophia, this note is exactly what it appears to be. A personal invitation to spend three nights with us at Thanda, in northern KwaZulu-Natal, between 16 and 19 May.
+        </p>
+        <p class="body" data-rv style="--d:160ms">
+          There is no agenda set up around your visit. No presentation in the diary. No business arranged on the back of your stay. The only ask is that you arrive, settle in, and let the place do what it does.
+        </p>
+        <p class="body" data-rv style="--d:200ms">
+          Thanda sits within 16,500 hectares of Big Five reserve, an hour by helicopter from King Shaka International Airport in Durban. The Olofsson family of Malm&ouml; founded it 25 years ago and have never marketed it. There has been no campaign, no press tour, no public launch. Seven of the 44 Royal Residences have been built. Each one sold quietly, by introduction.
+        </p>
+        <p class="body" data-rv style="--d:240ms">
+          We are inviting you because the people we know who have spent time here have, almost without exception, said the same thing afterwards. That something shifted. That is hard to write in a brochure, which is partly why we do not write brochures.
+        </p>
+        <p class="body" data-rv style="--d:280ms">
+          The dates are set to follow the Forbes Global Properties launch on 15 May in Cape Town, so the logistics work either way you arrive. If the timing does not fit, tell us what does and we will move it.
+        </p>
+        <p class="body" data-rv style="--d:320ms">
+          For Sophia, the reserve has things she will remember for the rest of her life. The Junior Rangers Course, photography afternoons with our resident wildlife photographer, bush picnics in places children do not normally get to eat, and a night under an outdoor cinema lit only by a Marula tree. For all three of you, the days are slow, the food is exceptional, and the silence is the kind you do not get anywhere else.
+        </p>
+        <p class="body" data-rv style="--d:360ms">
+          <strong>We hope you come.</strong>
+        </p>
+
+        <div class="signatures-row" data-rv style="--d:420ms">
+          <div class="signature">
+            <div>
+              <div class="signature-name">Pierre Delvaux</div>
+              <div class="signature-title">Founding CEO &middot; Thanda Group</div>
+            </div>
+          </div>
+          <div class="signature">
+            <div>
+              <div class="signature-name">Keegan Steyn</div>
+              <div class="signature-title">CEO &amp; Principal Broker &middot; SA | Forbes Global Properties</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     BLEED — ZULULAND
+     ═══════════════════════════════════════════════════════════════ -->
+<figure class="bleed" data-rv-clip style="position:relative; width:100%; height:clamp(340px, 70vh, 720px); overflow:hidden;">
+  <img src="zululand.jpg" alt="The Zululand wilderness at Thanda" style="width:100%; height:100%; object-fit:cover; object-position:center; transform:scale(1.04);">
+  <figcaption class="caption" style="position:absolute; bottom:clamp(20px, 3vw, 36px); left:clamp(28px, 6vw, 96px); right:clamp(28px, 6vw, 96px); display:flex; justify-content:space-between; align-items:flex-end; gap:24px; color:rgba(255,255,255,.8);">
+    <span>Zululand &middot; Northern KwaZulu-Natal &middot; South Africa</span>
+    <span>28&deg;01'S, 32&deg;04'E</span>
+  </figcaption>
+</figure>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SECTION II — THE PLACE
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="sec" id="place">
+  <div class="container">
+    <div class="grid-2">
+      <div>
+        <div class="eyebrow" data-rv>II &middot; The Place</div>
+        <h2 class="display h2" data-rv style="--d:60ms">Thanda means <em>love</em> in Zulu.</h2>
+      </div>
+      <div class="stack-md">
+        <p class="body body-lead" data-rv style="--d:120ms">
+          A 16,500 hectare Big Five reserve in northern KwaZulu-Natal, on land that contains some of the oldest carbon-dated records of human presence in Africa.
+        </p>
+        <p class="body" data-rv style="--d:180ms">
+          The Ingwavuma Border Cave, on Thanda's eastern edge, has yielded human artefacts dated back roughly 200,000 years. The land itself has been continuously inhabited and lived with for that long. It is, in a real sense, ancestral country.
+        </p>
+        <p class="body" data-rv style="--d:240ms">
+          Christin and Dan Olofsson, of Malm&ouml; in Sweden, founded Thanda in 2001 and have invested over 100 million US dollars into the land, the wildlife, and the surrounding communities. Their philanthropic arm, Star for Life, has supported more than 500,000 young people across Southern Africa since 2005. Princess Nandi Zulu serves as the reserve's brand ambassador, a relationship blessed by the late King Goodwill Zwelithini ka Bhekuzulu.
+        </p>
+        <p class="body" data-rv style="--d:300ms">
+          Thanda is one of three South African safari operations admitted to Leading Hotels of the World, and was named World's Leading Luxury Exclusive Private Villa in Safari at the 2024 World Travel Awards. The Getty family own the neighbouring estate.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     STATS BAND
+     ═══════════════════════════════════════════════════════════════ -->
+<div class="stats">
+  <div class="stat" data-rv>
+    <div class="stat-num">16,500</div>
+    <div class="stat-label">Hectares</div>
+    <div class="stat-desc">Big Five Reserve</div>
+  </div>
+  <div class="stat" data-rv style="--d:80ms">
+    <div class="stat-num">44</div>
+    <div class="stat-label">Memberships</div>
+    <div class="stat-desc">Invitation-only</div>
+  </div>
+  <div class="stat" data-rv style="--d:160ms">
+    <div class="stat-num">$100M+</div>
+    <div class="stat-label">Investment</div>
+    <div class="stat-desc">Olofsson family</div>
+  </div>
+  <div class="stat" data-rv style="--d:240ms">
+    <div class="stat-num">25</div>
+    <div class="stat-label">Years</div>
+    <div class="stat-desc">Quietly built</div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PULLQUOTE
+     ═══════════════════════════════════════════════════════════════ -->
+<aside class="pullquote" aria-label="Pullquote">
+  <p class="pullquote-quote" data-rv>
+    It is not about the real estate. It is about who is seated at the table. That is where the magic happens.
+  </p>
+  <p class="pullquote-attribution" data-rv style="--d:120ms">Pierre Delvaux</p>
+</aside>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SECTION III — THE ROYAL RESIDENCES
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="sec edge-rule" id="residences">
+  <span class="rl" aria-hidden="true"></span>
+  <div class="container">
+    <div class="grid-2">
+      <div>
+        <div class="eyebrow" data-rv>III &middot; The Royal Residences</div>
+        <h2 class="display h2" data-rv style="--d:60ms">Forty-four homes. <em>And not one more.</em></h2>
+      </div>
+      <div class="stack-md">
+        <p class="body body-lead" data-rv style="--d:120ms">
+          Within the reserve sits a 386 hectare gated estate. It holds 44 freehold Royal Residences. Membership of The Royal Thanda Club is conditional on ownership.
+        </p>
+        <p class="body" data-rv style="--d:180ms">
+          Four villa models are available: Induna, Inkosi, Isilo, and Indlovukazi, each in either Thanda Traditional or Thanda Contemporary architecture. Sizes range from 759 to 1,862 square metres of covered area, with four to six bedrooms. Pricing falls between 6.3 and 10.9 million US dollars, all-inclusive of erf, villa, and full membership.
+        </p>
+        <p class="body" data-rv style="--d:240ms">
+          Every Royal Residence includes a private helicopter safari service. To our knowledge, no other property in Africa offers this. Each title deed includes 80 years of traversing rights over the adjoining 6,700 hectare Mduna Royal Reserve, through a long-standing lease with the Ingonyama Trust Board. Members and their families have preferred access to Thanda Island, the Olofsson family's private island off the Tanzanian coast.
+        </p>
+        <p class="body body-muted" data-rv style="--d:320ms">
+          We do not show this part of Thanda lightly. If, by Sunday evening of your stay, you would like a quiet conversation about what membership looks like, we will have one. If not, we will not raise it. The visit is not contingent on the conversation.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     BLEED — VILLA
+     ═══════════════════════════════════════════════════════════════ -->
+<figure class="bleed" data-rv-clip style="position:relative; width:100%; height:clamp(340px, 70vh, 720px); overflow:hidden;">
+  <img src="villa-t.jpg" alt="A Royal Residence at dusk, sited on its own private ridge" style="width:100%; height:100%; object-fit:cover; object-position:center; transform:scale(1.04);">
+  <figcaption class="caption" style="position:absolute; bottom:clamp(20px, 3vw, 36px); left:clamp(28px, 6vw, 96px); right:clamp(28px, 6vw, 96px); display:flex; justify-content:space-between; align-items:flex-end; gap:24px; color:rgba(255,255,255,.8);">
+    <span>The Royal Residence &middot; Sited on its own private ridge</span>
+    <span>Architecture by Robert Adamson</span>
+  </figcaption>
+</figure>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SECTION IV — THE FAMILY STAY
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="sec" id="stay">
+  <div class="container">
+    <div style="max-width: 780px; margin-bottom: 64px;">
+      <div class="eyebrow" data-rv>IV &middot; The Family Stay</div>
+      <h2 class="display h2" data-rv style="--d:60ms; margin-top:14px;">Designed around <em>the three of you</em>.</h2>
+      <p class="body body-lead" data-rv style="--d:140ms; margin-top:28px;">
+        The pace is slow. The land is enormous. The detail is in the small things.
+      </p>
+    </div>
+
+    <div style="max-width: 920px;">
+      <div class="experience-block" data-rv>
+        <div class="experience-label">For Sophia</div>
+        <div class="experience-rule" aria-hidden="true"></div>
+        <p class="experience-body">
+          The Junior Rangers Course is run by Thanda's senior tracking team. Sophia will spend a morning identifying spoor, plant life, and birdsong with the same instructors who train our guides. Christian Sperka, Thanda's resident wildlife photographer, will spend an afternoon with her on a real tracking session, teaching her to use a camera in the bush.
+        </p>
+        <p class="experience-body">
+          There is an outdoor cinema set up beneath the sacred Marula tree, and a helicopter day to Nine Mile Beach inside iSimangaliso, a UNESCO World Heritage Site, where the dolphins come close enough to the shore to watch from the sand.
+        </p>
+      </div>
+
+      <div class="experience-block" data-rv style="--d:120ms">
+        <div class="experience-label">For Michael &amp; Dana</div>
+        <div class="experience-rule" aria-hidden="true"></div>
+        <p class="experience-body">
+          Twice-daily Big Five game drives with private guides. Bush breakfasts in places you would not expect to eat. A traditional Zulu cultural ceremony hosted by a sangoma from the neighbouring community. Dinner at the Marula Tree, prepared by Thanda's executive chef.
+        </p>
+        <p class="experience-body">
+          The Himalayan salt sauna and yoga deck. Stargazing with no ambient light for a hundred kilometres in any direction. If there is rhino or cheetah work being done by our conservation team during your stay, you can ride along.
+        </p>
+      </div>
+
+      <div class="experience-block" data-rv style="--d:240ms">
+        <div class="experience-label">If You Want Something Else</div>
+        <div class="experience-rule" aria-hidden="true"></div>
+        <p class="experience-body">
+          Helicopter to Prince's Grant or Zimbali for a round of golf. Horseback safari through the bush. Diving the iSimangaliso reef, which holds over 1,250 marine species. Leatherback turtle tracking by night, in season. Tell us in advance and we will arrange it.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SECTION V — A SUGGESTED SHAPE
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="sec edge-rule" id="shape" style="background:#0E0E0E;">
+  <span class="rl" aria-hidden="true"></span>
+  <div class="container-data">
+    <div style="max-width: 780px;">
+      <div class="eyebrow" data-rv>V &middot; A Suggested Shape</div>
+      <h2 class="display h2" data-rv style="--d:60ms; margin-top:14px;">Three nights, <em>loosely held</em>.</h2>
+      <p class="body body-muted" data-rv style="--d:140ms; margin-top:28px;">
+        A starting point. Every element moves to fit your travel and your interest.
+      </p>
+    </div>
+
+    <div class="day-list">
+      <div class="day-row" data-rv>
+        <div>
+          <div class="day-name">Friday</div>
+          <div class="day-meta">16 May &middot; Arrival</div>
+        </div>
+        <div>
+          <p class="day-body">
+            Helicopter collection from King Shaka International, Durban, on your arrival from Cape Town or international transfer. One hour to the reserve.
+          </p>
+          <p class="day-body">
+            Settle into Villa iZulu, the Olofsson family's private home. Sundowners on the deck. Dinner under the stars.
+          </p>
+        </div>
+      </div>
+
+      <div class="day-row" data-rv style="--d:80ms">
+        <div>
+          <div class="day-name">Saturday</div>
+          <div class="day-meta">17 May &middot; The Reserve</div>
+        </div>
+        <div>
+          <p class="day-body">
+            Sunrise game drive. Breakfast in the bush. Junior Rangers programme for Sophia, mid-morning to lunch. Free afternoon. Photography session with Christian Sperka.
+          </p>
+          <p class="day-body">
+            Evening Zulu cultural ceremony, followed by a private dinner at the Marula Tree, prepared by Thanda's executive chef.
+          </p>
+        </div>
+      </div>
+
+      <div class="day-row" data-rv style="--d:160ms">
+        <div>
+          <div class="day-name">Sunday</div>
+          <div class="day-meta">18 May &middot; The Coast</div>
+        </div>
+        <div>
+          <p class="day-body">
+            Helicopter to Nine Mile Beach inside iSimangaliso, the UNESCO coastal park. Beach braai with the family.
+          </p>
+          <p class="day-body">
+            Return to the reserve mid-afternoon. Sundowners on the lookout. Optional outdoor cinema beneath the Marula for Sophia.
+          </p>
+        </div>
+      </div>
+
+      <div class="day-row" data-rv style="--d:240ms">
+        <div>
+          <div class="day-name">Monday</div>
+          <div class="day-meta">19 May &middot; Departure</div>
+        </div>
+        <div>
+          <p class="day-body">
+            Final sunrise game drive. Breakfast at the lodge.
+          </p>
+          <p class="day-body">
+            Helicopter departure to King Shaka by mid-morning, in time for onward travel.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     CLOSING
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="closing-section" id="closing">
+  <p class="eyebrow" data-rv>In Closing</p>
+
+  <p class="closing-line" data-rv style="--d:80ms">
+    Thanda is not a property for sale. It is an <em>invitation</em> to belong to something that cannot be replicated, in a land that cannot be replaced.
+  </p>
+
+  <div class="closing-signatures" data-rv style="--d:240ms">
+    <div class="signature">
+      <div>
+        <div class="signature-name">Pierre Delvaux</div>
+        <div class="signature-title">Founding CEO &middot; Thanda Group</div>
+      </div>
+    </div>
+    <div class="signature">
+      <div>
+        <div class="signature-name">Keegan Steyn</div>
+        <div class="signature-title">CEO &amp; Principal Broker &middot; SA | Forbes Global Properties</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rsvp" data-rv-scale style="--d:320ms">
+    <div class="rsvp-label">To Confirm or Adjust</div>
+    <div class="rsvp-body">
+      <p>Reply to Keegan directly.</p>
+      <p><a href="mailto:keegan@safgp.com">keegan@safgp.com</a> &nbsp;&middot;&nbsp; +27 82 820 0414</p>
+      <p>Or to Pierre at Thanda: <a href="mailto:pierre@thanda.com">pierre@thanda.com</a></p>
+    </div>
+  </div>
+</section>
+
+
+</main>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     COLOPHON
+     ═══════════════════════════════════════════════════════════════ -->
+<footer class="colophon">
+  South Africa | Forbes Global Properties
+  <span class="divider-dot" aria-hidden="true"></span>
+  Thanda
+  <br>
+  Cape Town
+  <span class="divider-dot" aria-hidden="true"></span>
+  KwaZulu-Natal
+  <span class="divider-dot" aria-hidden="true"></span>
+  Confidential
+</footer>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SCRIPTS
+     ═══════════════════════════════════════════════════════════════ -->
+<script>
+(() => {
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* -----------------------------------------------------------
+     Hero parallax — translateY only, rAF-throttled
+     ----------------------------------------------------------- */
+  if (!prefersReduced) {
+    const hero = document.querySelector('.hero');
+    if (hero) {
+      let ticking = false;
+
+      const update = () => {
+        const rect = hero.getBoundingClientRect();
+        if (rect.bottom < 0 || rect.top > window.innerHeight) {
+          ticking = false;
+          return;
+        }
+        const y = Math.max(-rect.top, 0);
+        const translate = Math.min(y * 0.22, 160);
+        hero.style.setProperty('--hero-parallax', `${translate}px`);
+        ticking = false;
+      };
+
+      const style = document.createElement('style');
+      style.textContent = `.hero::before { transform: scale(1.05) translate3d(0, var(--hero-parallax, 0px), 0); }`;
+      document.head.appendChild(style);
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(update);
+          ticking = true;
+        }
+      }, { passive: true });
+    }
+  }
+
+  /* -----------------------------------------------------------
+     Scroll progress bar
+     ----------------------------------------------------------- */
+  const progress = document.getElementById('progress');
+  if (progress) {
+    let ticking = false;
+    const updateProgress = () => {
+      const h = document.documentElement;
+      const scrolled = (h.scrollTop || document.body.scrollTop) /
+        (h.scrollHeight - h.clientHeight);
+      progress.style.transform = `scaleX(${Math.min(Math.max(scrolled, 0), 1)})`;
+      ticking = false;
+    };
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(updateProgress);
+        ticking = true;
+      }
+    }, { passive: true });
+    updateProgress();
+  }
+})();
+</script>
+</body>
+</html>
