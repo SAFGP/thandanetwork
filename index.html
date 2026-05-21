@@ -299,6 +299,15 @@ img, video { display: block; max-width: 100%; height: auto; }
   [data-rv-scale][style*="--d"] { animation-range: calc(entry 0% + var(--d, 0ms) * 0.1) cover 30%; }
 }
 
+/* Scroll reveal disabled. Everything stays at full opacity, no fade or movement. */
+[data-rv], [data-rv-scale], [data-rv-clip] {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+  clip-path: none !important;
+}
+
 /* ═══════════════════════════════════════════════════════════════
    Hero page-load stagger — keyframes run on mount (no observer)
    ═══════════════════════════════════════════════════════════════ */
@@ -1738,13 +1747,6 @@ img, video { display: block; max-width: 100%; height: auto; }
           <div class="feature-copy">Every advisor receives the full marketing toolkit: heritage film, photography, brochure, and pitch deck, all co branded for your use.</div>
         </div>
       </div>
-      <div class="feature-row" data-rv style="--d:160ms">
-        <div class="feature-num">03</div>
-        <div>
-          <div class="feature-head">Buyer access to Pierre</div>
-          <div class="feature-copy">Your qualified prospects fly to Thanda and meet Pierre directly. He hosts on property. There is no middle layer.</div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -1799,13 +1801,24 @@ img, video { display: block; max-width: 100%; height: auto; }
      ═══════════════════════════════════════════════════════════════ -->
 <section class="cta-section">
   <div class="container">
-    <div class="eyebrow" data-rv>10 — Next</div>
+    <div class="eyebrow" data-rv>10 — Proposed dates</div>
     <h2 class="display" data-rv style="--d:60ms" style="font-size:clamp(44px, 8vw, 96px); line-height:1.02; margin-top:20px; max-width:18ch;">
       Come and <em>see it for yourself.</em>
     </h2>
     <p class="body" data-rv style="--d:140ms" style="margin-top:28px; max-width: 580px;">
-      If you would like to be considered for the 2026 familiarisation programme, reply to this invitation and Keegan will be in touch within forty eight hours.
+      These are the proposed dates. Confirm your availability and the travel team will arrange and cover all travel costs accordingly.
     </p>
+
+    <div class="contact-card" data-rv-scale style="--d:200ms; margin-top:32px;">
+      <div class="contact-row">
+        <div class="caption">Option one</div>
+        <div class="value">26 to 29 June</div>
+      </div>
+      <div class="contact-row">
+        <div class="caption">Option two</div>
+        <div class="value">3 to 6 July</div>
+      </div>
+    </div>
 
     <div class="contact-card" data-rv-scale style="--d:240ms">
       <div class="contact-row">
