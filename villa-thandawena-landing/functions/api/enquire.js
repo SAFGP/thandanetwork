@@ -39,8 +39,11 @@ async function readBody(request) {
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-/* Turnstile gate: the widget token is verified with Cloudflare before anything
-   else runs. Skipped when TURNSTILE_SECRET_KEY is unset (local dev). The secret
+/* Turnstile siteverify, verify or flag: a signal on the enquiry, never a gate.
+   A token that Cloudflare confirms means verified. A missing token, a rejected
+   token or an unreachable siteverify means unverified, and the enquiry still
+   proceeds, flagged for judgment. A real buyer is never blocked by a widget
+   failure. Skipped when TURNSTILE_SECRET_KEY is unset (local dev). The secret
    goes only to Cloudflare and is never logged. */
 async function verifyTurnstile(env, request, token) {
   if (!env.TURNSTILE_SECRET_KEY) return true;
@@ -68,12 +71,13 @@ a{color:#cdaa8b}h1{font-weight:300;font-size:2rem}</style></head>
 <body><div><h1>Thank you</h1><p>A principal broker will be in touch.</p>
 <p><a href="/">Return to the residence</a></p></div></body></html>`;
 
-async function sendEmail(env, { name, email, note, listing }) {
+async function sendEmail(env, { name, email, note, listing, verified }) {
   if (!env.RESEND_API_KEY) return false;
   const to = env.ENQUIRY_TO || "info@southafricafgp.com";
   const from = env.ENQUIRY_FROM || "South Africa | Forbes Global Properties <onboarding@resend.dev>";
   const html =
     `<h2>New enquiry${listing ? ", " + esc(listing) : ""}</h2>` +
+    (verified ? "" : `<p>Verification: not confirmed, treat with judgment.</p>`) +
     `<p><strong>Name:</strong> ${esc(name)}</p>` +
     `<p><strong>Email:</strong> ${esc(email)}</p>` +
     `<p><strong>Message:</strong><br>${esc(note) || "(none)"}</p>` +
@@ -84,7 +88,7 @@ async function sendEmail(env, { name, email, note, listing }) {
       headers: { "Authorization": `Bearer ${env.RESEND_API_KEY}`, "Content-Type": "application/json" },
       body: JSON.stringify({
         from, to: [to], reply_to: email,
-        subject: `${listing || "SA FGP"} enquiry from ${name}`,
+        subject: `${verified ? "" : "[unverified] "}${listing || "SA FGP"} enquiry from ${name}`,
         html,
       }),
     });
@@ -92,8 +96,10 @@ async function sendEmail(env, { name, email, note, listing }) {
   } catch { return false; }
 }
 
-async function fileInNotion(env, { name, email, note, listing }) {
+async function fileInNotion(env, { name, email, note, listing, verified }) {
   if (!env.NOTION_TOKEN || !env.NOTION_DB_ID) return false;
+  let message = (note || "").slice(0, 1900);
+  if (!verified) message = message ? message + " [unverified]" : "[unverified]";
   try {
     const r = await fetch("https://api.notion.com/v1/pages", {
       method: "POST",
@@ -107,7 +113,7 @@ async function fileInNotion(env, { name, email, note, listing }) {
         properties: {
           "Name": { title: [{ text: { content: name.slice(0, 200) } }] },
           "Email": { email },
-          "Message": { rich_text: [{ text: { content: (note || "").slice(0, 1900) } }] },
+          "Message": { rich_text: [{ text: { content: message } }] },
           "Listing": { select: { name: (listing || "General").slice(0, 100) } },
           "Source": { rich_text: [{ text: { content: "Website enquiry form" } }] },
         },
@@ -129,8 +135,7 @@ export async function onRequestPost(context) {
   try { data = await readBody(request); }
   catch { return reply(400, { ok: false, error: "Could not read the form." }); }
 
-  const turnstileOk = await verifyTurnstile(env, request, (data.turnstile || "").toString().trim());
-  if (!turnstileOk) return reply(403, { ok: false, error: "verification failed" });
+  const verified = await verifyTurnstile(env, request, (data.turnstile || "").toString().trim());
 
   const name = (data.name || "").toString().trim();
   const email = (data.email || "").toString().trim();
@@ -140,7 +145,7 @@ export async function onRequestPost(context) {
   if (!name) return reply(400, { ok: false, error: "Name is required." });
   if (!EMAIL_RE.test(email)) return reply(400, { ok: false, error: "A valid email is required." });
 
-  const payload = { name, email, note, listing };
+  const payload = { name, email, note, listing, verified };
   const [emailed, filed] = await Promise.all([sendEmail(env, payload), fileInNotion(env, payload)]);
 
   if (!emailed && !filed) {
