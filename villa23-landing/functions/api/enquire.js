@@ -8,7 +8,7 @@
    Set these as Pages environment variables (Settings, Variables and Secrets):
      RESEND_API_KEY   email delivery, your Resend API key
      ENQUIRY_TO       optional, defaults to info@southafricafgp.com
-     ENQUIRY_FROM     optional, defaults to "South Africa | Forbes Global Properties <onboarding@resend.dev>"
+     ENQUIRY_FROM     optional, defaults to "South Africa | Forbes Global Properties <enquiries@southafricafgp.com>"
      NOTION_TOKEN     Notion internal integration secret (CRM write)
      NOTION_DB_ID     the CRM database id the integration can access
      TURNSTILE_SECRET_KEY  Cloudflare Turnstile secret, verification is skipped when unset
@@ -74,21 +74,21 @@ a{color:#cdaa8b}h1{font-weight:300;font-size:2rem}</style></head>
 async function sendEmail(env, { name, email, note, listing, verified }) {
   if (!env.RESEND_API_KEY) return false;
   const to = env.ENQUIRY_TO || "info@southafricafgp.com";
-  const from = env.ENQUIRY_FROM || "South Africa | Forbes Global Properties <onboarding@resend.dev>";
+  const from = env.ENQUIRY_FROM || "South Africa | Forbes Global Properties <enquiries@southafricafgp.com>";
   const html =
     `<h2>New enquiry${listing ? ", " + esc(listing) : ""}</h2>` +
     (verified ? "" : `<p>Verification: not confirmed, treat with judgment.</p>`) +
     `<p><strong>Name:</strong> ${esc(name)}</p>` +
     `<p><strong>Email:</strong> ${esc(email)}</p>` +
     `<p><strong>Message:</strong><br>${esc(note) || "(none)"}</p>` +
-    `<hr><p>Sent from the ${esc(listing) || "SA FGP"} listing page.</p>`;
+    `<hr><p>Sent from the ${esc(listing) || "South Africa | Forbes Global Properties"} listing page.</p>`;
   try {
     const r = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: { "Authorization": `Bearer ${env.RESEND_API_KEY}`, "Content-Type": "application/json" },
       body: JSON.stringify({
         from, to: [to], reply_to: email,
-        subject: `${verified ? "" : "[unverified] "}${listing || "SA FGP"} enquiry from ${name}`,
+        subject: `${verified ? "" : "[unverified] "}${listing || "South Africa | Forbes Global Properties"} enquiry from ${name}`,
         html,
       }),
     });
