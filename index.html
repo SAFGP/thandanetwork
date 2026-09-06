@@ -8,1962 +8,684 @@
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Thanda Royal Residences — An invitation for the Forbes network">
+<meta property="og:title" content="Thanda Royal Residences, an invitation for the Forbes network">
 <meta property="og:description" content="Fifteen residences remain inside a 16,500 hectare Big Five sanctuary. A private invitation from South Africa | Forbes Global Properties.">
-<meta property="og:image" content="villa-t.jpg">
+<meta property="og:image" content="img/featured-royal.jpg">
 <meta property="og:site_name" content="South Africa | Forbes Global Properties">
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Thanda Royal Residences">
 <meta name="twitter:description" content="A private invitation for the Forbes Global Properties network.">
-<meta name="twitter:image" content="villa-t.jpg">
+<meta name="twitter:image" content="img/featured-royal.jpg">
 
-<meta name="theme-color" content="#0A0A0A">
+<meta name="theme-color" content="#000000">
 
-<!-- Favicon (inline SVG, champagne monogram on bg) -->
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230A0A0A'/%3E%3Ctext x='50%25' y='58%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='20' font-style='italic' fill='%23CDAA8B'%3ET%3C/text%3E%3Crect x='0' y='0' width='32' height='2' fill='%23C8352E'/%3E%3C/svg%3E">
+<!-- Favicon (inline SVG, serif T on black, red top bar) -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23000000'/%3E%3Ctext x='50%25' y='60%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='20' fill='%23ffffff'%3ET%3C/text%3E%3Crect x='0' y='0' width='32' height='3' fill='%23D8361E'/%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
-/* ═══════════════════════════════════════════════════════════════
-   Local fonts (FreightNeo)
-   ═══════════════════════════════════════════════════════════════ */
-@font-face {
-  font-family: 'FreightNeo';
-  src: url('FreightNeo-Light.woff2') format('woff2');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'FreightNeo';
-  src: url('FreightNeo-Book.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'FreightNeo';
-  src: url('FreightNeo-Semi.woff2') format('woff2');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
+/* =========================================================================
+   Thanda Royal Residences, a proposal for the Forbes network.
+   Set in the South Africa | Forbes Global Properties editorial system:
+   white magazine page, FreightNeo and Work Sans, black, white, Forbes red.
+   ========================================================================= */
 
-/* ═══════════════════════════════════════════════════════════════
-   Design tokens
-   ═══════════════════════════════════════════════════════════════ */
+@font-face { font-family: "FreightNeo"; src: url("FreightNeo-Light.woff2") format("woff2"); font-weight: 300; font-display: swap; }
+@font-face { font-family: "FreightNeo"; src: url("FreightNeo-Book.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "FreightNeo"; src: url("FreightNeo-Semi.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+
 :root {
-  /* Palette */
-  --bg: #0A0A0A;
-  --bg-soft: #121212;
-  --fg: #FFFFFF;
-  --fg-muted: rgba(255,255,255,.72);
-  --fg-dim: rgba(255,255,255,.5);
-  --fg-faint: rgba(255,255,255,.3);
-  --fg-slate: #8A8F96;              /* Runway-inspired cool neutral for editorial secondary text */
-  --fg-slate-dim: #6D7178;
-  --gold: #CDAA8B;
-  --gold-soft: rgba(205,170,139,.22);
-  --red: #C8352E;
-  --hair: rgba(255,255,255,.06);
-  --hair-gold: rgba(205,170,139,.28);
-
-  /* Easing (custom curves, never default CSS easings) */
-  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
-  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
-  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
-
-  /* Timing */
-  --t-fast: 160ms;
-  --t-ui: 220ms;
-  --t-reveal: 820ms;
-  --t-clip: 1100ms;
+  --white: #ffffff;
+  --black: #000000;
+  --text: #333333;
+  --soft: #6b6b6b;
+  --line: #e3e0db;
+  --rule: #000000;
+  --red: #d8361e;
+  --gray-band: #f2f0ee;
+  --display: "FreightNeo", Georgia, "Times New Roman", serif;
+  --sans: "Work Sans", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  --maxw: 1360px;
+  --pad: clamp(1.2rem, 4vw, 3.4rem);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   Reset / base
-   ═══════════════════════════════════════════════════════════════ */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-html {
-  font-size: 16px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  scroll-behavior: smooth;
-}
-
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 body {
-  background: var(--bg);
-  color: var(--fg);
-  font-family: 'Work Sans', Helvetica, Arial, sans-serif;
-  font-weight: 300;
-  overflow-x: hidden;
-  line-height: 1.6;
-  text-rendering: optimizeLegibility;
-  font-variant-numeric: tabular-nums;
+  margin: 0; background: var(--white); color: var(--text);
+  font-family: var(--sans); font-size: 16px; line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
 }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; color: var(--black); margin: 0; }
+.pipe { color: var(--red); margin: 0 0.28em; }
 
-img, video { display: block; max-width: 100%; height: auto; }
+.wrap { max-width: var(--maxw); margin: 0 auto; padding-left: var(--pad); padding-right: var(--pad); }
 
-/* Global focus ring — champagne, not browser default blue */
-:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 3px;
-  border-radius: 2px;
-}
-*:focus:not(:focus-visible) { outline: none; }
-
-/* Skip to content — hidden until keyboard-focused */
-.skip-link {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  z-index: 1000;
-  padding: 10px 18px;
-  background: var(--bg);
-  border: 1px solid var(--gold);
-  color: var(--gold);
-  font-family: 'Work Sans', sans-serif;
-  font-size: 11px;
-  font-weight: 450;                 /* Runway precision weight */
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  text-decoration: none;
-  transform: translateY(-140%);
-  transition: transform var(--t-ui) var(--ease-out);
-}
-.skip-link:focus-visible {
-  transform: translateY(0);
-}
-
-/* Grain overlay — fixed, pointer-events none, ultra low opacity */
-.grain {
-  position: fixed;
-  inset: 0;
-  z-index: 999;
-  pointer-events: none;
-  mix-blend-mode: overlay;
-  opacity: 0.22;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.85 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-}
-
-/* Scroll progress — thin champagne line at top */
-.progress {
-  position: fixed;
-  top: 0; left: 0;
-  height: 2px;
-  width: 100%;
-  transform-origin: left center;
-  transform: scaleX(0);
-  background: linear-gradient(90deg, var(--red) 0%, var(--gold) 100%);
-  z-index: 998;
-  transition: transform 80ms linear;
-  will-change: transform;
-}
-
-/* Text-wrap niceties for display type */
-.display, .quote-lead, .hero-title, .hero-subtitle {
-  text-wrap: balance;
-}
-.body {
-  text-wrap: pretty;
-}
-.tnum {
-  font-variant-numeric: tabular-nums;
-  font-feature-settings: 'tnum' 1, 'lnum' 1;
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   Typography
-   ═══════════════════════════════════════════════════════════════ */
-.display {
-  font-family: 'FreightNeo', Georgia, serif;
-  font-weight: 300;
-  letter-spacing: -0.02em;
-  line-height: 1.02;
-}
-.display em { font-style: italic; color: var(--gold); }
-
-.h1 { font-size: clamp(56px, 11vw, 128px); }
-.h2 { font-size: clamp(40px, 7.5vw, 82px); line-height: 1.05; letter-spacing: -0.015em; }
-.h3 { font-size: clamp(28px, 4.5vw, 48px); line-height: 1.15; }
-.h4 { font-size: clamp(22px, 3vw, 32px); line-height: 1.2; font-weight: 300; }
-
-.eyebrow {
-  font-family: 'Work Sans', sans-serif;
-  font-weight: 450;                 /* Runway precision weight */
-  font-size: 10px;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--gold);
-}
-
-.body {
-  font-family: 'Work Sans', sans-serif;
-  font-weight: 300;
-  font-size: clamp(16px, 1.3vw, 18px);
-  line-height: 1.75;
-  color: var(--fg-muted);
-  max-width: 62ch;
-}
-.body.tight { max-width: 52ch; }
-.body strong { color: var(--fg); font-weight: 500; }
-
-.caption {
-  font-family: 'Work Sans', sans-serif;
-  font-weight: 400;
-  font-size: 13px;
-  letter-spacing: 0.04em;
-  color: var(--fg-dim);
-  line-height: 1.55;
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   Layout primitives
-   ═══════════════════════════════════════════════════════════════ */
-.sec {
-  position: relative;
-  padding: clamp(96px, 14vh, 180px) clamp(28px, 6vw, 96px);
-}
-.sec.tight { padding: clamp(72px, 10vh, 120px) clamp(28px, 6vw, 96px); }
-.sec.edge-rule::before {
-  content: '';
-  position: absolute;
-  top: 0; left: clamp(28px, 6vw, 96px); right: clamp(28px, 6vw, 96px);
-  height: 1px;
-  background: var(--hair);
-}
-.container { max-width: 1560px; margin: 0 auto; }
-.grid-2 {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 48px;
-}
-@media (min-width: 900px) {
-  .grid-2 { grid-template-columns: 1fr 1fr; gap: clamp(48px, 6vw, 96px); }
-  .grid-2.align-center { align-items: center; }
-}
-.stack-sm > * + * { margin-top: 14px; }
-.stack-md > * + * { margin-top: 24px; }
-.stack-lg > * + * { margin-top: 40px; }
-.stack-xl > * + * { margin-top: 64px; }
-
-/* ═══════════════════════════════════════════════════════════════
-   Reveal animations — progressive enhancement only.
-   ───────────────────────────────────────────────────────────────
-   Content is visible BY DEFAULT in vanilla CSS. Scroll-driven
-   animations only apply where `animation-timeline: view()` is
-   supported (Chrome 115+, Safari 17.4+). Unsupported browsers
-   simply see the final state. No JS dependency.
-   ═══════════════════════════════════════════════════════════════ */
-
-@supports (animation-timeline: view()) {
-  [data-rv] {
-    animation: rv-rise linear both;
-    animation-timeline: view();
-    animation-range: entry 0% cover 28%;
-  }
-  [data-rv-clip] {
-    animation: rv-unmask linear both;
-    animation-timeline: view();
-    animation-range: entry 0% cover 24%;
-  }
-  [data-rv-scale] {
-    animation: rv-scale linear both;
-    animation-timeline: view();
-    animation-range: entry 0% cover 30%;
-  }
-}
-
-@keyframes rv-rise {
-  from { opacity: 0; transform: translate3d(0, 28px, 0); }
-  to   { opacity: 1; transform: translate3d(0, 0, 0); }
-}
-@keyframes rv-unmask {
-  from { opacity: 0; clip-path: inset(0 0 96% 0); }
-  to   { opacity: 1; clip-path: inset(0 0 0 0); }
-}
-@keyframes rv-scale {
-  from { opacity: 0; transform: scale(0.965); }
-  to   { opacity: 1; transform: scale(1); }
-}
-
-/* Per-element stagger via inline --d, added to animation-range entry offset */
-@supports (animation-timeline: view()) {
-  [data-rv][style*="--d"]       { animation-range: calc(entry 0% + var(--d, 0ms) * 0.1) cover 28%; }
-  [data-rv-scale][style*="--d"] { animation-range: calc(entry 0% + var(--d, 0ms) * 0.1) cover 30%; }
-}
-
-/* Scroll reveal disabled. Everything stays at full opacity, no fade or movement. */
-[data-rv], [data-rv-scale], [data-rv-clip] {
-  animation: none !important;
-  opacity: 1 !important;
-  transform: none !important;
-  filter: none !important;
-  clip-path: none !important;
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   Hero page-load stagger — keyframes run on mount (no observer)
-   ═══════════════════════════════════════════════════════════════ */
-@keyframes hero-rise {
-  from { opacity: 0; transform: translate3d(0, 18px, 0); }
-  to   { opacity: 1; transform: translate3d(0, 0, 0); }
-}
-@keyframes hero-title-rise {
-  from { opacity: 0; transform: translate3d(0, 32px, 0); letter-spacing: -0.015em; }
-  to   { opacity: 1; transform: translate3d(0, 0, 0);    letter-spacing: -0.025em; }
-}
-.hero-brand-row,
-.hero-meta,
-.hero-eyebrow,
-.hero-title,
-.hero-subtitle,
-.hero-bottom > .caption,
-.hero-bottom > .scroll-cue {
-  animation: hero-rise 900ms var(--ease-out) both;
-}
-.hero-brand-row  { animation-delay: 120ms; }
-.hero-meta       { animation-delay: 200ms; }
-.hero-eyebrow    { animation-delay: 320ms; }
-.hero-title      { animation: hero-title-rise 1200ms var(--ease-out) 400ms both; }
-.hero-subtitle   { animation-delay: 760ms; }
-.hero-bottom > .caption    { animation-delay: 1040ms; }
-.hero-bottom > .scroll-cue { animation-delay: 1120ms; }
-
-/* ═══════════════════════════════════════════════════════════════
-   HERO
-   ═══════════════════════════════════════════════════════════════ */
-.hero {
-  position: relative;
-  min-height: 100vh;
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: clamp(28px, 4vw, 56px) clamp(28px, 6vw, 96px);
-  overflow: hidden;
-  background: #000;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url('cover-game-drive.jpg');
-  background-size: cover;
-  background-position: center 40%;
-  transform: scale(1.05);
-  transform-origin: center;
-  filter: brightness(0.78) saturate(1.05);
-  z-index: 0;
-  will-change: transform;
-}
-.hero::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgba(10,10,10,.55) 0%, rgba(10,10,10,.15) 35%, rgba(10,10,10,.35) 65%, rgba(10,10,10,.95) 100%),
-    radial-gradient(ellipse at 50% 50%, transparent 40%, rgba(10,10,10,.4) 100%);
-  z-index: 1;
-}
-.hero > * { position: relative; z-index: 2; }
-.hero-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-}
-.hero-brand-row {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
-.hero-brand-row img { opacity: 0.92; }
-.hero-brand-row .divider {
-  width: 1px;
-  height: 28px;
-  background: var(--gold);
-  opacity: 0.35;
-}
-.hero-meta {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-.hero-meta .dot {
-  width: 6px; height: 6px; border-radius: 50%;
-  background: var(--gold);
-  box-shadow: 0 0 0 4px rgba(205,170,139,.15);
-}
-.hero-center {
-  max-width: 1040px;
-  margin: auto 0;
-  padding-top: 12vh;
-}
-.hero-eyebrow { margin-bottom: 28px; display: inline-block; }
-.hero-title {
-  font-size: clamp(62px, 13vw, 178px);
-  line-height: 0.94;
-  letter-spacing: -0.025em;
-}
-.hero-subtitle {
-  margin-top: clamp(24px, 3vh, 36px);
-  font-family: 'FreightNeo', Georgia, serif;
-  font-weight: 300;
-  font-style: italic;
-  font-size: clamp(20px, 2.4vw, 30px);
-  line-height: 1.35;
-  max-width: 720px;
-  color: rgba(255,255,255,.85);
-}
-.hero-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 24px;
-  flex-wrap: wrap;
-}
-.hero-bottom .caption { color: rgba(255,255,255,.55); }
-.scroll-cue {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 0;
-  color: rgba(255,255,255,.7);
-  font-size: 10px;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  font-weight: 450;                 /* Runway precision weight */
-  transition: color var(--t-ui) var(--ease-out);
-}
-.scroll-cue:hover { color: var(--gold); }
-.scroll-cue .line {
-  display: inline-block;
-  width: 36px; height: 1px;
-  background: var(--gold);
-  opacity: 0.6;
-  transform-origin: left center;
-  animation: scrollLine 2.6s var(--ease-in-out) infinite;
-}
-@keyframes scrollLine {
-  0%, 100% { transform: scaleX(0.4); opacity: 0.3; }
-  50% { transform: scaleX(1); opacity: 0.7; }
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   Section: Invitation
-   ═══════════════════════════════════════════════════════════════ */
-.quote-lead {
-  font-family: 'FreightNeo', Georgia, serif;
-  font-weight: 300;
-  font-size: clamp(30px, 4.2vw, 52px);
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-  max-width: 22ch;
-}
-.quote-lead em { font-style: italic; color: var(--gold); }
-
-.signature {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-top: 40px;
-  padding-top: 20px;
-  border-top: 1px solid var(--hair-gold);
-}
-.signature-name {
-  font-family: 'FreightNeo', Georgia, serif;
-  font-size: 18px;
-  color: var(--fg);
-}
-.signature-title {
-  font-size: 12px;
-  color: var(--gold);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-weight: 500;
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   Section: Stats strip
-   ═══════════════════════════════════════════════════════════════ */
-.stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 2px;
-  background: var(--hair);
-  border-top: 1px solid var(--hair);
-  border-bottom: 1px solid var(--hair);
-}
-.stat {
-  background: var(--bg);
-  padding: clamp(36px, 5vw, 56px) clamp(20px, 3vw, 36px);
-}
-.stat-num {
-  font-family: 'FreightNeo', Georgia, serif;
-  font-weight: 300;
-  font-size: clamp(44px, 6vw, 72px);
-  line-height: 1;
-  color: var(--fg);
-  letter-spacing: -0.02em;
-}
-.stat-label {
-  font-size: 10px;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  font-weight: 450;                 /* Runway precision weight */
-  color: var(--gold);
-  margin-top: 14px;
-}
-.stat-desc {
-  font-size: 13px;
-  color: var(--fg-dim);
-  margin-top: 8px;
-  line-height: 1.5;
-  max-width: 28ch;
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   Full-bleed image
-   ═══════════════════════════════════════════════════════════════ */
-.bleed {
-  position: relative;
-  width: 100%;
-  height: clamp(340px, 70vh, 780px);
-  overflow: hidden;
-}
-.bleed img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transform: scale(1.06);
-  will-change: transform;
-}
-.bleed-cap {
-  position: absolute;
-  bottom: clamp(20px, 3vw, 36px);
-  left: clamp(28px, 6vw, 96px);
-  right: clamp(28px, 6vw, 96px);
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 24px;
-  color: rgba(255,255,255,.8);
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   Video embed
-   ═══════════════════════════════════════════════════════════════ */
-.video-wrap {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16/9;
-  background: #000;
-  overflow: hidden;
-  border: 1px solid var(--hair);
-  border-radius: 2px;
-  box-shadow:
-    inset 0 0 0 1px rgba(205,170,139,0.03),
-    0 40px 80px -40px rgba(0,0,0,0.7),
-    0 2px 8px -2px rgba(205,170,139,0.06);
-  transition: box-shadow 480ms var(--ease-out);
-}
-@media (hover: hover) and (pointer: fine) {
-  .video-wrap:hover {
-    box-shadow:
-      inset 0 0 0 1px rgba(205,170,139,0.10),
-      0 48px 96px -40px rgba(0,0,0,0.75),
-      0 2px 12px -2px rgba(205,170,139,0.12);
-  }
-}
-.video-wrap video,
-.video-wrap iframe {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border: 0;
-  /* Cinematic entrance when iframe mounts after play click */
-  animation: video-cinematic-in 900ms var(--ease-out) both;
-}
-@keyframes video-cinematic-in {
-  from { opacity: 0; transform: scale(1.035); }
-  to   { opacity: 1; transform: scale(1); }
-}
-.video-placeholder {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  background-color: #0E0E0E;
-  background-size: cover;
-  background-position: center center;
-  color: var(--fg);
-  text-align: center;
-  padding: 24px;
-  cursor: pointer;
-  overflow: hidden;
-  /* Ken Burns — subtle, slow, alternating, never loops harshly */
-  animation: ken-burns 32s var(--ease-in-out) infinite alternate;
-  transition:
-    opacity 380ms var(--ease-out),
-    filter 380ms var(--ease-out);
-  will-change: transform, opacity, filter;
-}
-@keyframes ken-burns {
-  from { background-size: 104% auto; background-position: 50% 48%; }
-  to   { background-size: 112% auto; background-position: 52% 54%; }
-}
-/* Cinematic darkening overlay on top of poster image */
-.video-placeholder::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(135deg, rgba(10,10,10,.55) 0%, rgba(10,10,10,.3) 50%, rgba(10,10,10,.65) 100%),
-    radial-gradient(ellipse at center, transparent 0%, rgba(10,10,10,.4) 100%);
-  pointer-events: none;
-  z-index: 0;
-  transition: background 380ms var(--ease-out);
-}
-@media (hover: hover) and (pointer: fine) {
-  .video-placeholder:hover::before {
-    background:
-      linear-gradient(135deg, rgba(10,10,10,.4) 0%, rgba(10,10,10,.2) 50%, rgba(10,10,10,.5) 100%),
-      radial-gradient(ellipse at center, transparent 0%, rgba(10,10,10,.3) 100%);
-  }
-}
-.video-placeholder > * { position: relative; z-index: 1; }
-.video-placeholder.is-loading {
-  opacity: 0;
-  pointer-events: none;
-}
-.play-btn {
-  width: 84px; height: 84px;
-  border-radius: 50%;
-  border: 1px solid var(--gold);
-  background: rgba(205,170,139,.06);
-  display: grid; place-items: center;
-  cursor: pointer;
-  position: relative;
-  transition:
-    transform var(--t-fast) var(--ease-out),
-    background var(--t-ui) var(--ease-out),
-    border-color var(--t-ui) var(--ease-out);
-}
-/* Idle ring — breathes slowly, signals interactivity without demanding attention */
-.play-btn::before {
-  content: '';
-  position: absolute;
-  inset: -6px;
-  border-radius: 50%;
-  border: 1px solid var(--gold);
-  opacity: 0;
-  transform: scale(0.92);
-  animation: play-breathe 3.2s var(--ease-in-out) infinite;
-  pointer-events: none;
-}
-@keyframes play-breathe {
-  0%   { opacity: 0;    transform: scale(0.92); }
-  50%  { opacity: 0.35; transform: scale(1); }
-  100% { opacity: 0;    transform: scale(1.08); }
-}
-.play-btn:active { transform: scale(0.97); }
-.play-btn svg { display: block; margin-left: 4px; transition: transform var(--t-ui) var(--ease-out); }
-@media (hover: hover) and (pointer: fine) {
-  .play-btn:hover {
-    background: rgba(205,170,139,.14);
-    border-color: #FFFFFF;
-  }
-  .play-btn:hover svg { transform: scale(1.08); }
-}
-.video-label {
-  font-size: 11px;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  font-weight: 450;                 /* Runway precision weight */
-  color: var(--gold);
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   Feature list (for ethos / villa specs)
-   ═══════════════════════════════════════════════════════════════ */
-.feature-list { display: grid; gap: 0; }
-.feature-row {
-  display: grid;
-  grid-template-columns: 60px 1fr;
-  gap: 24px;
-  padding: 22px 20px 22px 16px;
-  margin: 0 -16px;
-  border-bottom: 1px solid var(--hair);
-  align-items: baseline;
-  transition:
-    background 240ms var(--ease-out),
-    padding-left 260ms var(--ease-out);
-  position: relative;
-}
-.feature-row:last-child { border-bottom: 0; }
-/* Left accent bar — draws in on hover */
-.feature-row::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 22px; bottom: 22px;
-  width: 1px;
-  background: var(--gold);
-  transform: scaleY(0);
-  transform-origin: center top;
-  transition: transform 420ms var(--ease-out);
-}
-@media (hover: hover) and (pointer: fine) {
-  .feature-row:hover {
-    background: rgba(205,170,139,0.03);
-    padding-left: 24px;
-  }
-  .feature-row:hover::before {
-    transform: scaleY(1);
-  }
-  .feature-row:hover .feature-num { color: var(--fg); }
-  .feature-row:hover .feature-head { color: var(--gold); }
-}
-.feature-num {
-  font-family: 'FreightNeo', Georgia, serif;
-  font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 0.2em;
-  color: var(--gold);
-  transition: color 220ms var(--ease-out);
-}
-.feature-head {
-  transition: color 260ms var(--ease-out);
-}
-.feature-head {
-  font-family: 'FreightNeo', Georgia, serif;
-  font-weight: 300;
-  font-size: clamp(22px, 2.8vw, 30px);
-  color: var(--fg);
-  line-height: 1.2;
-  margin-bottom: 8px;
-}
-.feature-copy {
-  font-size: 15px;
-  line-height: 1.7;
-  color: var(--fg-muted);
-  max-width: 58ch;
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   Specs grid
-   ═══════════════════════════════════════════════════════════════ */
-.specs {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1px;
-  background: var(--hair);
-  border: 1px solid var(--hair);
-}
-.spec {
-  background: var(--bg);
-  padding: 28px 24px;
-  transition:
-    background 260ms var(--ease-out),
-    transform 320ms cubic-bezier(0.34, 1.56, 0.64, 1);
-  will-change: transform;
-}
-@media (hover: hover) and (pointer: fine) {
-  .spec:hover {
-    background: rgba(205,170,139,0.035);
-    transform: translateY(-3px);
-  }
-  .spec:hover .spec-value {
-    color: var(--gold);
-  }
-}
-.spec-value {
-  transition: color 200ms var(--ease-out);
-}
-.spec-label {
-  font-size: 10px;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  font-weight: 450;                 /* Runway precision weight */
-  color: var(--gold);
-  margin-bottom: 10px;
-}
-.spec-value {
-  font-family: 'FreightNeo', Georgia, serif;
-  font-weight: 300;
-  font-size: clamp(22px, 2.6vw, 30px);
-  line-height: 1.1;
-  color: var(--fg);
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   Access / Location — modern asymmetric layout
-   ═══════════════════════════════════════════════════════════════ */
-.access-sec { position: relative; overflow: hidden; }
-.access-sec::before {
-  /* Ambient wash behind the whole section, behind the map */
-  content: '';
-  position: absolute;
-  top: 20%; right: -8%;
-  width: 70%; height: 90%;
-  background: radial-gradient(
-    ellipse at 30% 40%,
-    rgba(205,170,139,.07) 0%,
-    rgba(205,170,139,.025) 30%,
-    transparent 65%
-  );
-  filter: blur(40px);
-  pointer-events: none;
-  z-index: 0;
-}
-.access-sec > * { position: relative; z-index: 1; }
-
-.grid-access {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: clamp(48px, 7vw, 96px);
-  align-items: center;
-}
-@media (min-width: 980px) {
-  .grid-access {
-    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
-    gap: clamp(56px, 7vw, 112px);
-  }
-}
-.access-copy { max-width: 560px; }
-
-/* Big key stat */
-.access-highlight {
-  display: flex;
-  align-items: baseline;
-  gap: 22px;
-  margin-top: 44px;
-  padding-top: 24px;
-  border-top: 1px solid var(--hair);
-}
-.access-highlight-num {
-  font-family: 'FreightNeo', Georgia, serif;
-  font-weight: 300;
-  font-size: clamp(64px, 8vw, 96px);
-  line-height: 0.9;
-  color: var(--fg);
-  letter-spacing: -0.03em;
-  display: inline-flex;
-  align-items: baseline;
-  gap: 6px;
-}
-.access-highlight-num .unit {
-  font-size: 0.36em;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--gold);
-  font-family: 'Work Sans', sans-serif;
-  font-weight: 450;                 /* Runway precision weight */
-  margin-left: 2px;
-}
-.access-highlight-label {
-  flex: 1;
-}
-.access-highlight-label > div:first-child {
-  font-family: 'Work Sans', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--fg);
-  line-height: 1.5;
-}
-.access-highlight-label .sub {
-  font-size: 12.5px;
-  color: var(--fg-dim);
-  margin-top: 6px;
-  line-height: 1.55;
-  letter-spacing: 0.01em;
-}
-
-/* Route rows */
-.routes {
-  list-style: none;
-  margin-top: 36px;
-  padding: 0;
-  border-top: 1px solid var(--hair);
-}
-.route-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 16px;
-  padding: 16px;
-  margin: 0 -16px;
-  border-bottom: 1px solid var(--hair);
-  transition:
-    padding-left 260ms var(--ease-out),
-    background 240ms var(--ease-out);
-  position: relative;
-}
-.route-row:last-child { border-bottom: 0; }
-/* Left-edge accent — fills in on hover */
-.route-row::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 50%;
-  width: 0; height: 1px;
-  background: var(--gold);
-  transition: width 420ms var(--ease-out);
-  transform: translateY(-50%);
-}
-@media (hover: hover) and (pointer: fine) {
-  .route-row:hover {
-    padding-left: 28px;
-    background: rgba(205,170,139,0.025);
-  }
-  .route-row:hover::before {
-    width: 18px;
-  }
-  .route-row:hover .route-time {
-    color: var(--fg);
-  }
-  .route-row:hover .route-city em {
-    color: var(--fg);
-  }
-}
-.route-city {
-  font-family: 'Work Sans', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--fg);
-  letter-spacing: 0.01em;
-}
-.route-city em {
-  font-family: 'FreightNeo', Georgia, serif;
-  font-style: italic;
-  font-weight: 300;
-  color: var(--fg-muted);
-  font-size: 15px;
-  margin-left: 6px;
-  transition: color 220ms var(--ease-out);
-}
-.route-time {
-  font-family: 'FreightNeo', Georgia, serif;
-  font-weight: 300;
-  font-size: 17px;
-  color: var(--gold);
+/* ---------- Chips and buttons ---------- */
+.chip {
+  display: inline-flex; align-items: center; gap: 0.55em;
+  background: var(--black); color: var(--white);
+  font-family: var(--sans); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 0.72em 1.25em; border: 0; border-radius: 3px; cursor: pointer;
   white-space: nowrap;
-  letter-spacing: 0.01em;
-  transition: color 220ms var(--ease-out);
+  transition: background 0.3s var(--ease);
+}
+.chip:hover { background: var(--red); }
+.chip--red { background: var(--red); }
+.chip--red:hover { background: var(--black); }
+
+/* ---------- Accessibility ---------- */
+.skip-link {
+  position: fixed; top: 0; left: 50%; transform: translate(-50%, -120%); z-index: 200;
+  background: var(--black); color: var(--white); padding: 0.7rem 1.2rem; font-size: 13px;
+  border-radius: 0 0 3px 3px; transition: transform 0.2s var(--ease);
+}
+.skip-link:focus { transform: translate(-50%, 0); outline: none; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+
+/* ---------- Masthead ---------- */
+.mast {
+  position: sticky; top: 0; z-index: 60;
+  background: var(--black); color: var(--white);
+  border-bottom: 2px solid var(--red);
+}
+.mast__inner {
+  max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad);
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+  min-height: 76px;
+}
+.mast__left { justify-self: start; display: flex; gap: 1.6rem; }
+.mast__left a { font-size: 13px; letter-spacing: 0.05em; color: rgba(255,255,255,0.85); transition: color 0.3s; }
+.mast__left a:hover { color: var(--white); }
+.mast__brand { justify-self: center; text-align: center; font-family: var(--display); line-height: 1.15; }
+.mast__brand strong { display: block; font-weight: 600; font-size: 1.3rem; letter-spacing: 0.02em; }
+.mast__brand span { display: block; font-family: var(--sans); font-weight: 500; font-size: 9.5px; letter-spacing: 0.42em; text-transform: uppercase; margin-top: 2px; color: rgba(255,255,255,0.92); }
+.mast__right { justify-self: end; }
+
+/* ---------- Tagline bar ---------- */
+.tagline { border-bottom: 2px solid var(--rule); }
+.tagline p {
+  max-width: var(--maxw); margin: 0 auto; padding: 1.05rem var(--pad);
+  font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--black);
 }
 
-/* Map frame — floating, with depth */
-.access-map {
-  position: relative;
-  margin: 0;
-  padding: 0;
-}
-.access-map-frame {
-  position: relative;
-  border-radius: 3px;
-  overflow: hidden;
-  /* Reserve layout space even before image decodes (3200x2146 = ~3:2) */
-  aspect-ratio: 3200 / 2146;
-  transition: transform var(--t-reveal) var(--ease-out);
-  /* Subtle edge definition without visible border */
-  box-shadow:
-    inset 0 0 0 1px rgba(205,170,139,.08),
-    0 32px 64px -32px rgba(0,0,0,.6),
-    0 4px 12px -4px rgba(0,0,0,.4);
-}
-.access-map-frame::after {
-  /* Thin top-light highlight for dimensionality */
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(180deg, rgba(205,170,139,.04) 0%, transparent 12%, transparent 88%, rgba(0,0,0,.08) 100%);
-  border-radius: inherit;
-}
-.access-map-frame img {
-  display: block;
-  width: 100%;
-  height: auto;
-  /* Tinted drop shadow that picks up the copper map palette */
-  filter: drop-shadow(0 20px 40px rgba(0,0,0,.35));
-}
-/* Map caption below with a pulsing dot that echoes the JHB marker */
-.access-map-cap {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 22px;
-  padding: 0 6px;
-  font-family: 'Work Sans', sans-serif;
-  font-size: 11px;
-  font-weight: 450;                 /* Runway precision weight */
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--fg-dim);
-}
-.access-map-dot {
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  background: var(--gold);
-  position: relative;
-  flex-shrink: 0;
-}
-.access-map-dot::before {
-  content: '';
-  position: absolute;
-  inset: -4px;
-  border-radius: 50%;
-  border: 1px solid var(--gold);
-  opacity: 0;
-  animation: mapPulse 2.4s var(--ease-out) infinite;
-}
-@keyframes mapPulse {
-  0%   { opacity: 0.6; transform: scale(0.8); }
-  80%  { opacity: 0;   transform: scale(2.2); }
-  100% { opacity: 0;   transform: scale(2.2); }
-}
+/* ---------- Front: featured + film rail ---------- */
+.front { padding: clamp(1.8rem, 3.5vw, 3rem) 0 clamp(2.4rem, 4vw, 3.6rem); }
+.front__grid { display: grid; grid-template-columns: 2fr 1fr; gap: clamp(1.6rem, 3vw, 3rem); }
 
+.featured { display: block; }
+.featured__media { position: relative; aspect-ratio: 3 / 2; overflow: hidden; background: var(--gray-band); }
+.featured__media img { width: 100%; height: 100%; object-fit: cover; }
+.featured__media .chip { position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); }
+.featured h1 { font-family: var(--display); font-weight: 400; font-size: clamp(1.9rem, 3.4vw, 2.7rem); line-height: 1.12; margin: 1.3rem 0 0.7rem; }
+.featured p { margin: 0; color: var(--text); max-width: 68ch; }
+.featured__meta { font-size: 14px; color: var(--soft); margin: 0.8rem 0 0; }
+
+.rail { display: flex; flex-direction: column; gap: clamp(1.6rem, 3vw, 2.4rem); }
+.rail__card { display: block; }
+.rail__media { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: var(--gray-band); }
+.rail__media img { width: 100%; height: 100%; object-fit: cover; }
+.rail__media .chip { position: absolute; left: 0; bottom: 0; padding: 0.5em 0.9em; font-size: 10.5px; }
+.rail__card h3 { font-size: clamp(1.25rem, 1.9vw, 1.6rem); line-height: 1.2; margin: 0.9rem 0 0; }
+.rail__card:hover h3 { color: var(--red); }
+.rail__card p { font-size: 13px; color: var(--soft); margin: 0.35rem 0 0; }
+
+/* ---------- Section header ---------- */
+.secthead { border-top: 2px solid var(--rule); padding-top: 1rem; margin-bottom: clamp(1.6rem, 3vw, 2.4rem); display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+.secthead h2 { font-size: clamp(1.6rem, 2.8vw, 2.2rem); }
+.secthead h2 .arrow { font-family: var(--sans); font-weight: 300; margin-left: 0.45em; }
+.secthead .secthead__note { font-size: 13px; color: var(--soft); white-space: nowrap; }
+section { padding: 0 0 clamp(2.8rem, 5vw, 4.4rem); }
+
+/* ---------- Stats strip ---------- */
+.stats { border-top: 2px solid var(--rule); border-bottom: 1px solid var(--line); margin-bottom: clamp(2.8rem, 5vw, 4.4rem); }
+.stats ul { list-style: none; margin: 0 auto; max-width: var(--maxw); padding: clamp(1.6rem, 3vw, 2.4rem) var(--pad); display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; }
+.stats li { display: flex; flex-direction: column; gap: 0.2rem; }
+.stats__k { font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--soft); }
+.stats strong { font-family: var(--display); font-weight: 400; font-size: clamp(1.9rem, 3vw, 2.6rem); color: var(--black); }
+.stats__d { font-size: 13px; color: var(--soft); line-height: 1.45; }
+
+/* ---------- Editorial two column ---------- */
+.duo { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(1.8rem, 4vw, 4rem); align-items: start; }
+.duo__lead { font-family: var(--display); font-size: clamp(1.7rem, 3vw, 2.5rem); line-height: 1.18; color: var(--black); }
+.duo__lead em { font-style: italic; }
+.duo p { margin: 0 0 1rem; max-width: 58ch; }
+.duo p:last-child { margin-bottom: 0; }
+.kicker { font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); display: block; margin-bottom: 0.5rem; }
+.byline { border-top: 2px solid var(--rule); padding-top: 1rem; margin-top: 1.6rem; }
+.byline strong { font-family: var(--display); font-weight: 400; font-size: 1.25rem; color: var(--black); display: block; }
+.byline span { font-size: 13px; color: var(--soft); }
+
+/* ---------- Editorial figure ---------- */
+.plate { margin: 0; }
+.plate img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: var(--gray-band); }
+.plate--tall img { aspect-ratio: 3 / 2; }
+.plate figcaption { display: flex; justify-content: space-between; gap: 1rem; font-size: 12.5px; color: var(--soft); padding-top: 0.6rem; }
+
+/* ---------- Numbered feature rows (services anatomy) ---------- */
+.rows ol { list-style: none; margin: 0; padding: 0; }
+.rows li { display: grid; grid-template-columns: 3rem 1fr; gap: 0.9rem; align-items: baseline; padding: 1.05rem 0; border-top: 1px solid var(--line); }
+.rows li:last-child { border-bottom: 1px solid var(--line); }
+.rows li span { font-family: var(--sans); font-size: 12px; font-weight: 500; letter-spacing: 0.1em; color: var(--red); }
+.rows h3 { font-size: clamp(1.15rem, 1.9vw, 1.5rem); margin: 0 0 0.35rem; }
+.rows p { margin: 0; font-size: 14.5px; color: var(--text); max-width: 62ch; }
+
+/* ---------- Spec list ---------- */
+.spec { list-style: none; margin: 0; padding: 0; }
+.spec li { display: grid; grid-template-columns: 140px 1fr; gap: 1rem; padding: 0.8rem 0; border-top: 1px solid var(--line); align-items: baseline; }
+.spec li:last-child { border-bottom: 1px solid var(--line); }
+.spec .k { font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--soft); }
+.spec .v { font-family: var(--display); font-size: 1.15rem; color: var(--black); }
+
+/* ---------- Residence cards ---------- */
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.4rem, 2.6vw, 2.4rem); margin-top: clamp(1.8rem, 3vw, 2.6rem); }
+.card { display: block; }
+.card__media { aspect-ratio: 3 / 2; overflow: hidden; background: var(--gray-band); }
+.card__media img { width: 100%; height: 100%; object-fit: cover; }
+.card__loc { font-size: 13.5px; color: var(--soft); margin: 0.9rem 0 0.2rem; }
+.card__title { font-family: var(--display); font-size: 1.35rem; line-height: 1.2; color: var(--black); margin: 0; }
+
+/* ---------- Film block ---------- */
+.film { max-width: 1080px; margin: 0 auto; }
+.video-wrap { position: relative; aspect-ratio: 16 / 9; background: var(--black); overflow: hidden; }
+.video-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; }
+.video-placeholder {
+  position: absolute; inset: 0; cursor: pointer;
+  background-size: cover; background-position: center;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;
+}
+.video-placeholder::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.28); transition: background 0.3s var(--ease); }
+.video-placeholder:hover::after { background: rgba(0,0,0,0.16); }
+.video-placeholder > * { position: relative; z-index: 1; }
+.video-placeholder.is-loading { opacity: 0.4; }
+.play-btn {
+  display: inline-flex; align-items: center; gap: 0.55em;
+  background: var(--white); color: var(--black); border: 0; border-radius: 3px;
+  font-family: var(--sans); font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 0.72em 1.25em; cursor: pointer; transition: background 0.3s var(--ease), color 0.3s var(--ease);
+}
+.play-btn:hover { background: var(--red); color: var(--white); }
+.film__cap { display: flex; justify-content: space-between; gap: 1rem; font-size: 12.5px; color: var(--soft); padding-top: 0.6rem; }
+
+/* ---------- Numbers table ---------- */
+.invest { width: 100%; border-collapse: collapse; }
+.invest th { text-align: left; font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--soft); padding: 0 0 0.8rem; border-bottom: 2px solid var(--rule); }
+.invest td { padding: 1.05rem 1.2rem 1.05rem 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+.invest td:first-child { font-family: var(--display); font-size: 1.15rem; color: var(--black); width: 34%; }
+.invest .sub { display: block; font-size: 13px; color: var(--soft); margin-top: 0.25rem; }
+
+/* ---------- Leadership ---------- */
+.people { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.8rem, 4vw, 4rem); }
+.people h3 { font-size: clamp(1.4rem, 2.2vw, 1.8rem); }
+.people p { margin: 0.8rem 0 0; max-width: 52ch; }
+
+/* ---------- Affiliation band ---------- */
+.affil { background: var(--gray-band); border-top: 2px solid var(--rule); padding: clamp(2rem, 4vw, 3rem) 0; margin-bottom: clamp(2.8rem, 5vw, 4.4rem); }
+.affil__row { display: flex; align-items: center; gap: clamp(1.6rem, 4vw, 3.4rem); }
+.affil__row img { width: clamp(150px, 18vw, 220px); filter: brightness(0); opacity: 0.85; flex-shrink: 0; }
+.affil__row p { margin: 0; font-size: 14.5px; color: var(--text); max-width: 62ch; }
+.affil__row .kicker { margin-bottom: 0.35rem; }
+
+/* ---------- Visit band ---------- */
+.office { background: var(--gray-band); border-top: 2px solid var(--rule); padding: clamp(2.8rem, 5vw, 4.4rem) 0; margin-bottom: 0; }
+.office__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.8rem, 4vw, 4rem); align-items: start; }
+.office h2 { font-size: clamp(1.9rem, 3.4vw, 2.8rem); line-height: 1.12; margin-bottom: 1rem; }
+.office p { margin: 0 0 1rem; max-width: 46ch; }
+.contact { list-style: none; margin: 0 0 1.6rem; padding: 0; }
+.contact li { display: grid; grid-template-columns: 140px 1fr; gap: 1rem; padding: 0.8rem 0; border-top: 1px solid #d9d5cf; align-items: baseline; }
+.contact li:last-child { border-bottom: 1px solid #d9d5cf; }
+.contact .k { font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--soft); }
+.contact .v { font-family: var(--display); font-size: 1.15rem; color: var(--black); }
+.contact .v a { border-bottom: 2px solid var(--red); }
+.contact .v a:hover { color: var(--red); }
+
+/* ---------- Footer ---------- */
+.footer { background: var(--gray-band); border-top: 2px solid var(--rule); padding: clamp(2.4rem, 5vw, 4rem) 0 2rem; }
+.footer__row { display: flex; align-items: center; justify-content: space-between; gap: 1.6rem; flex-wrap: wrap; padding-bottom: 1.4rem; border-bottom: 2px solid var(--rule); }
+.footer__brand { font-family: var(--display); font-size: 1.15rem; color: var(--black); }
+.footer__brand span { color: var(--red); margin: 0 0.3em; }
+.footer__nav { display: flex; gap: clamp(1rem, 2.5vw, 2rem); flex-wrap: wrap; }
+.footer__nav a { font-size: 13.5px; font-weight: 600; color: var(--black); }
+.footer__nav a:hover { color: var(--red); }
+.footer__legal { text-align: center; font-size: 12px; color: var(--soft); max-width: 78ch; margin: 1.8rem auto 0; line-height: 1.7; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1020px) {
+  .front__grid { grid-template-columns: 1fr; }
+  .rail { flex-direction: row; }
+  .rail__card { flex: 1; }
+  .duo, .people, .office__grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  .mast__inner { grid-template-columns: auto 1fr; min-height: 64px; gap: 1rem; }
+  .mast__left { display: none; }
+  .mast__brand { justify-self: start; text-align: left; }
+  .mast__brand strong { font-size: 1.05rem; }
+  .mast__brand span { font-size: 8px; letter-spacing: 0.3em; }
+  .mast__right .chip { font-size: 11px; padding: 0.65em 1em; }
+  .cards { grid-template-columns: 1fr; }
+  .rail { flex-direction: column; }
+  .stats ul { grid-template-columns: 1fr; gap: 1.2rem; }
+  .invest td:first-child { width: auto; display: block; border-bottom: 0; padding-bottom: 0.2rem; }
+  .invest td { display: block; padding-right: 0; }
+  .invest thead { display: none; }
+  .affil__row { flex-direction: column; align-items: flex-start; }
+  .spec li, .contact li { grid-template-columns: 1fr; gap: 0.2rem; }
+}
 @media (prefers-reduced-motion: reduce) {
-  .access-map-dot::before { animation: none; }
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   Investment table
-   ═══════════════════════════════════════════════════════════════ */
-.invest-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-.invest-table th {
-  font-family: 'Work Sans', sans-serif;
-  font-weight: 450;                 /* Runway precision weight */
-  font-size: 10px;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--gold);
-  text-align: left;
-  padding: 18px 0;
-  border-bottom: 1px solid var(--hair-gold);
-}
-.invest-table td {
-  padding: 18px 0;
-  font-size: 15px;
-  color: var(--fg-muted);
-  border-bottom: 1px solid var(--hair);
-  vertical-align: top;
-}
-.invest-table td:first-child { color: var(--fg); font-weight: 400; width: 40%; }
-.invest-table td .sub { display: block; font-size: 13px; color: var(--fg-dim); margin-top: 4px; font-weight: 300; }
-
-/* ═══════════════════════════════════════════════════════════════
-   Affiliation strip — LHW credential
-   ═══════════════════════════════════════════════════════════════ */
-.affiliation {
-  padding: clamp(56px, 8vh, 96px) clamp(28px, 6vw, 96px);
-  border-top: 1px solid var(--hair);
-  border-bottom: 1px solid var(--hair);
-  background: linear-gradient(180deg, rgba(18,18,18,.4) 0%, rgba(10,10,10,.6) 100%);
-}
-.affiliation-row {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: clamp(24px, 4vw, 48px);
-  align-items: center;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-@media (min-width: 820px) {
-  .affiliation-row {
-    grid-template-columns: 220px 1fr;
-    gap: clamp(48px, 6vw, 80px);
-  }
-}
-/* LHW logo mark — white-on-transparent PNG, crisp on dark */
-.lhw-mark {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 0;
-  border-right: 0;
-}
-@media (min-width: 820px) {
-  .lhw-mark {
-    border-right: 1px solid var(--hair-gold);
-    padding-right: clamp(32px, 4vw, 56px);
-    padding-left: clamp(16px, 2vw, 24px);
-  }
-}
-.lhw-mark img {
-  width: 100%;
-  max-width: 160px;
-  height: auto;
-  opacity: 0.92;
-  transition: opacity 260ms var(--ease-out);
-}
-@media (hover: hover) and (pointer: fine) {
-  .lhw-mark:hover img { opacity: 1; }
-}
-.affiliation-text {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.affiliation-eyebrow {
-  font-family: 'Work Sans', sans-serif;
-  font-weight: 450;                 /* Runway precision weight */
-  font-size: 10px;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--gold);
-}
-.affiliation-copy {
-  font-family: 'FreightNeo', Georgia, serif;
-  font-weight: 300;
-  font-size: clamp(17px, 1.6vw, 21px);
-  line-height: 1.5;
-  color: var(--fg);
-  max-width: 62ch;
-  text-wrap: balance;
-}
-.affiliation-copy em {
-  font-style: italic;
-  color: var(--gold);
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   Closing / CTA
-   ═══════════════════════════════════════════════════════════════ */
-.cta-section {
-  position: relative;
-  min-height: 80vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: clamp(96px, 14vh, 180px) clamp(28px, 6vw, 96px);
-  overflow: hidden;
-}
-.cta-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url('thanda-closing.png');
-  background-size: cover;
-  background-position: center;
-  opacity: 0.35;
-  z-index: 0;
-}
-.cta-section::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(10,10,10,.7) 0%, rgba(10,10,10,.5) 50%, rgba(10,10,10,.95) 100%);
-  z-index: 1;
-}
-.cta-section > * { position: relative; z-index: 2; }
-
-.contact-card {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 28px;
-  padding: 36px;
-  border: 1px solid rgba(205,170,139,.18);
-  background: rgba(18,18,18,.55);
-  backdrop-filter: blur(18px) saturate(1.15);
-  -webkit-backdrop-filter: blur(18px) saturate(1.15);
-  max-width: 640px;
-  margin-top: 40px;
-  position: relative;
-  overflow: hidden;
-  /* True glass: inner highlight + edge refraction + tinted shadow */
-  box-shadow:
-    inset 0 1px 0 0 rgba(255,255,255,.06),
-    inset 0 0 0 1px rgba(205,170,139,.04),
-    0 24px 48px -24px rgba(0,0,0,.7),
-    0 2px 8px -2px rgba(205,170,139,.08);
-}
-/* Spotlight border — cursor-reactive gold glow */
-.contact-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  background: radial-gradient(
-    320px circle at var(--mx, 50%) var(--my, 50%),
-    rgba(205,170,139,.15),
-    transparent 60%
-  );
-  opacity: 0;
-  transition: opacity var(--t-ui) var(--ease-out);
-  z-index: 0;
-}
-.contact-card:hover::before { opacity: 1; }
-.contact-card > * { position: relative; z-index: 1; }
-.contact-row .caption { margin-bottom: 4px; }
-.contact-row .value {
-  font-family: 'FreightNeo', Georgia, serif;
-  font-weight: 300;
-  font-size: clamp(20px, 2vw, 24px);
-  color: var(--fg);
-}
-.contact-row .value a {
-  color: inherit;
-  text-decoration: none;
-  border-bottom: 1px solid var(--hair-gold);
-  transition: border-color var(--t-ui) var(--ease-out), color var(--t-ui) var(--ease-out);
-}
-.contact-row .value a:hover { color: var(--gold); border-bottom-color: var(--gold); }
-
-/* ═══════════════════════════════════════════════════════════════
-   Button
-   ═══════════════════════════════════════════════════════════════ */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding: 16px 26px;
-  background: transparent;
-  border: 1px solid var(--gold);
-  color: var(--fg);
-  font-family: 'Work Sans', sans-serif;
-  font-weight: 500;
-  font-size: 12px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  text-decoration: none;
-  cursor: pointer;
-  transition:
-    transform var(--t-fast) var(--ease-out),
-    border-color 260ms var(--ease-out);
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-}
-/* Clip-path fill sweep on hover */
-.btn::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg,
-    rgba(205,170,139,0.22) 0%,
-    rgba(205,170,139,0.12) 60%,
-    rgba(205,170,139,0.06) 100%);
-  clip-path: inset(0 100% 0 0);
-  transition: clip-path 520ms var(--ease-out);
-  z-index: -1;
-}
-.btn:active { transform: scale(0.97); }
-.btn > * { position: relative; z-index: 1; }
-.btn .arrow {
-  display: inline-block;
-  transition: transform 260ms cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-@media (hover: hover) and (pointer: fine) {
-  .btn:hover {
-    border-color: var(--fg);
-  }
-  .btn:hover::before {
-    clip-path: inset(0 0 0 0);
-  }
-  .btn:hover .arrow {
-    transform: translateX(6px);
-  }
-}
-.btn:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 4px;
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   Footer
-   ═══════════════════════════════════════════════════════════════ */
-.footer {
-  padding: 56px clamp(28px, 6vw, 96px) 48px;
-  border-top: 1px solid var(--hair);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-  flex-wrap: wrap;
-}
-.footer .caption { color: var(--fg-dim); }
-.footer-brand {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-.footer-brand .divider {
-  width: 1px; height: 20px;
-  background: var(--gold);
-  opacity: 0.35;
-}
-.footer-nav {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-.footer-link {
-  font-family: 'Work Sans', sans-serif;
-  font-size: 11px;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  font-weight: 450;                 /* Runway precision weight */
-  color: var(--fg-dim);
-  text-decoration: none;
-  transition: color var(--t-ui) var(--ease-out);
-}
-.footer-link:hover { color: var(--gold); }
-.footer-sep { color: var(--fg-faint); font-size: 10px; }
-
-/* ═══════════════════════════════════════════════════════════════
-   Red accent line at section boundaries
-   ═══════════════════════════════════════════════════════════════ */
-.rl {
-  position: absolute;
-  top: 0; left: 0;
-  width: 48px; height: 2px;
-  background: var(--red);
-  z-index: 3;
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   Reduced motion
-   ═══════════════════════════════════════════════════════════════ */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-  [data-rv], [data-rv-scale] { opacity: 1 !important; transform: none !important; filter: none !important; }
-  [data-rv-clip] { clip-path: inset(0 0 0 0) !important; }
-  .hero::before,
-  .hero-brand-row,
-  .hero-meta,
-  .hero-eyebrow,
-  .hero-title,
-  .hero-subtitle,
-  .hero-bottom > * {
-    animation: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-  }
-  .scroll-cue .line { animation: none !important; }
-  .video-placeholder { animation: none !important; background-size: cover !important; }
-  .access-map-dot::before { animation: none !important; }
-  .play-btn::before { animation: none !important; }
-  /* Keep hover/focus states — these aid comprehension */
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   Responsive
-   ═══════════════════════════════════════════════════════════════ */
-@media (max-width: 720px) {
-  .hero-bottom { align-items: flex-start; }
-  .feature-row { grid-template-columns: 1fr; }
-  .feature-num { margin-bottom: 8px; }
-  .signature { flex-direction: column; align-items: flex-start; gap: 6px; }
+  html { scroll-behavior: auto; }
+  * { transition-duration: 0.001ms !important; }
 }
 </style>
 </head>
 <body>
 
 <a href="#main" class="skip-link">Skip to content</a>
-<div class="grain" aria-hidden="true"></div>
-<div class="progress" id="progress" aria-hidden="true"></div>
 
-<!-- ═══════════════════════════════════════════════════════════════
-     HERO
-     ═══════════════════════════════════════════════════════════════ -->
-<header class="hero" id="top">
-  <div class="hero-top">
-    <div class="hero-brand-row" data-rv>
-      <img src="thada-logo.webp" alt="Thanda Safari" style="width:56px">
-      <span class="divider" aria-hidden="true"></span>
-      <img src="logo-white.png" alt="Forbes Global Properties" style="width:120px">
-    </div>
-    <div class="hero-meta caption" data-rv style="--d:80ms">
-      <span class="dot" aria-hidden="true"></span>
-      <span>Private circulation &middot; Forbes Global Properties network</span>
-    </div>
-  </div>
-
-  <div class="hero-center">
-    <p class="eyebrow hero-eyebrow" data-rv>An invitation from South Africa</p>
-    <h1 class="display hero-title" data-rv style="--d:120ms">Thanda<br><em>Royal Residences</em></h1>
-    <p class="hero-subtitle" data-rv style="--d:240ms">
-      A once in a generation opportunity in South Africa's most storied private game reserve. Fifteen residences remain within a 16,500 hectare Big Five sanctuary.
-    </p>
-  </div>
-
-  <div class="hero-bottom">
-    <p class="caption" data-rv>
-      Prepared for Forbes Global Properties network members<br>
-      by Keegan Steyn, South Africa | Forbes Global Properties
-    </p>
-    <a href="#invitation" class="scroll-cue" data-rv style="--d:120ms">
-      <span class="line" aria-hidden="true"></span>
-      Continue
+<!-- Masthead -->
+<header class="mast">
+  <div class="mast__inner">
+    <nav class="mast__left" aria-label="Sections">
+      <a href="#invitation">Invitation</a>
+      <a href="#land">The Land</a>
+      <a href="#residences">Residences</a>
+      <a href="#numbers">Numbers</a>
+    </nav>
+    <a class="mast__brand" href="#top" aria-label="South Africa | Forbes Global Properties">
+      <strong>South Africa</strong>
+      <span>Forbes Global Properties</span>
     </a>
+    <div class="mast__right">
+      <a class="chip chip--red" href="mailto:keegan@southafricafgp.com?subject=Thanda%20Royal%20Residences%2C%20Network%20Member%20Visit">Request a visit</a>
+    </div>
   </div>
 </header>
 
-<main id="main">
-
-
-<!-- ═══════════════════════════════════════════════════════════════
-     INVITATION
-     ═══════════════════════════════════════════════════════════════ -->
-<section class="sec edge-rule" id="invitation">
-  <span class="rl" aria-hidden="true"></span>
-  <div class="container">
-    <div class="grid-2 align-center">
-      <div>
-        <div class="eyebrow" data-rv>01 — The Invitation</div>
-        <h2 class="display quote-lead" data-rv style="--d:80ms">
-          You know your clients better than anyone. <em>We have something they have not yet seen.</em>
-        </h2>
-      </div>
-      <div class="stack-md">
-        <p class="body" data-rv style="--d:120ms">
-          Thanda Safari has quietly stewarded seven residences within a tight personal network. Pierre, CEO of Thanda Group, wrote letters, hosted dinners, and let the place speak for itself.
-        </p>
-        <p class="body" data-rv style="--d:180ms">
-          Thanda is now entering its most public chapter, and South Africa | Forbes Global Properties has been appointed to place the remaining fifteen residences through the Forbes network. We are bringing a handful of your peers here, to feel it in person, and to carry it back to the clients who have been waiting for exactly this.
-        </p>
-        <p class="body" data-rv style="--d:240ms">
-          <strong>This is an invitation to be one of them.</strong>
-        </p>
-
-        <div class="signature" data-rv style="--d:320ms">
-          <div>
-            <div class="signature-name">Keegan Steyn</div>
-            <div class="signature-title">Founder &middot; South Africa | Forbes Global Properties</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ═══════════════════════════════════════════════════════════════
-     STATS STRIP
-     ═══════════════════════════════════════════════════════════════ -->
-<div class="stats">
-  <div class="stat" data-rv>
-    <div class="stat-num">16,500</div>
-    <div class="stat-label">Hectares</div>
-    <div class="stat-desc">Private Big Five reserve, northern KwaZulu-Natal</div>
-  </div>
-  <div class="stat" data-rv style="--d:80ms">
-    <div class="stat-num">15</div>
-    <div class="stat-label">Remaining</div>
-    <div class="stat-desc">Villas available, Phases 1 &amp; 2</div>
-  </div>
-  <div class="stat" data-rv style="--d:160ms">
-    <div class="stat-num">TBC</div>
-    <div class="stat-label">Phase 3</div>
-    <div class="stat-desc">To be launched</div>
-  </div>
+<div class="tagline">
+  <p>A private invitation for Forbes Global Properties network members</p>
 </div>
 
+<main id="main">
 
-<!-- ═══════════════════════════════════════════════════════════════
-     BLEED IMAGE — ZULULAND
-     ═══════════════════════════════════════════════════════════════ -->
-<figure class="bleed" data-rv-clip>
-  <img src="zululand.jpg" alt="Overlooking the Zululand wilderness at Thanda">
-  <figcaption class="bleed-cap caption">
-    <span>Zululand &middot; Northern KwaZulu-Natal &middot; South Africa</span>
-    <span>28°01'S, 32°04'E</span>
-  </figcaption>
-</figure>
+<!-- Front: featured + film rail -->
+<section class="front" id="top">
+  <div class="wrap front__grid">
+    <article class="featured">
+      <div class="featured__media">
+        <img src="img/featured-royal.jpg" alt="A Royal Residence at dusk, sited on its own private ridge at Thanda" fetchpriority="high">
+        <span class="chip">The Royal Residences</span>
+      </div>
+      <h1>Thanda <span class="pipe">|</span> Royal Residences</h1>
+      <p>A once in a generation opportunity in South Africa's most storied private game reserve. Fifteen residences remain within a 16,500 hectare Big Five sanctuary, and South Africa | Forbes Global Properties has been appointed to place them through the Forbes network.</p>
+      <p class="featured__meta">Prepared for network members by Keegan Steyn, South Africa | Forbes Global Properties &middot; Private circulation</p>
+    </article>
 
+    <aside class="rail" aria-label="Films">
+      <a class="rail__card" href="#heritage-film">
+        <div class="rail__media">
+          <img src="img/poster-heritage.jpg" alt="The Royal Residence heritage film" loading="lazy">
+          <span class="chip">Film</span>
+        </div>
+        <h3>Heritage <span class="pipe">|</span> A cinematic portrait</h3>
+        <p>Three minutes, shot on location at Thanda</p>
+      </a>
+      <a class="rail__card" href="#experience-film">
+        <div class="rail__media">
+          <img src="img/poster-experience.jpg" alt="Game drive at Thanda, the experience film" loading="lazy">
+          <span class="chip">Film</span>
+        </div>
+        <h3>Experience <span class="pipe">|</span> A day at Thanda</h3>
+        <p>Game drives, conservation, stillness</p>
+      </a>
+    </aside>
+  </div>
+</section>
 
-<!-- ═══════════════════════════════════════════════════════════════
-     THE LAND
-     ═══════════════════════════════════════════════════════════════ -->
-<section class="sec">
-  <div class="container">
-    <div class="grid-2">
+<!-- Stats strip -->
+<div class="stats" role="group" aria-label="Reserve facts">
+  <ul>
+    <li><span class="stats__k">Reserve</span><strong>16,500 ha</strong><span class="stats__d">Private Big Five reserve, northern KwaZulu-Natal</span></li>
+    <li><span class="stats__k">Remaining</span><strong>15</strong><span class="stats__d">Villas available, Phases 1 and 2</span></li>
+    <li><span class="stats__k">Phase 3</span><strong>TBC</strong><span class="stats__d">To be launched</span></li>
+  </ul>
+</div>
+
+<!-- 01 The invitation -->
+<section id="invitation">
+  <div class="wrap">
+    <div class="secthead">
+      <h2>The invitation<span class="arrow">&#8594;</span></h2>
+      <span class="secthead__note">01</span>
+    </div>
+    <div class="duo">
+      <p class="duo__lead">You know your clients better than anyone. <em>We have something they have not yet seen.</em></p>
       <div>
-        <div class="eyebrow" data-rv>02 — The Land</div>
-        <h2 class="display h2" data-rv style="--d:60ms">Zululand. <em>Untouched.</em></h2>
-      </div>
-      <div class="stack-md">
-        <p class="body" data-rv>
-          Thanda lies in the ancient heart of Zululand, a landscape that has shaped Southern African history for six hundred years. It is the homeland of King Shaka, a place of legend, lineage and living wildlife. The reserve spans 16,500 hectares of savannah, acacia woodland and wetland, traversed by the Big Five and more than four hundred bird species.
-        </p>
-        <p class="body" data-rv style="--d:80ms">
-          Within it, a 386 hectare private estate has been set aside exclusively for The Royal Thanda Club, wrapped inside a sanctuary the size of a small country. Every residence looks out onto unbroken bush. There are no neighbours to see. There are only the animals, the thornveld, and the silence.
-        </p>
+        <p>Thanda Safari has quietly stewarded seven residences within a tight personal network. Pierre, CEO of Thanda Group, wrote letters, hosted dinners, and let the place speak for itself.</p>
+        <p>Thanda is now entering its most public chapter, and South Africa | Forbes Global Properties has been appointed to place the remaining fifteen residences through the Forbes network. We are bringing a handful of your peers here, to feel it in person, and to carry it back to the clients who have been waiting for exactly this.</p>
+        <p><strong>This is an invitation to be one of them.</strong></p>
+        <div class="byline">
+          <strong>Keegan Steyn</strong>
+          <span>Founder &middot; South Africa | Forbes Global Properties</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- ═══════════════════════════════════════════════════════════════
-     HERITAGE FILM — VIDEO 1
-     ═══════════════════════════════════════════════════════════════ -->
-<section class="sec tight" style="background: linear-gradient(180deg, var(--bg) 0%, #0E0E0E 100%);">
-  <div class="container">
-    <div style="text-align:center; max-width: 720px; margin: 0 auto 56px;">
-      <div class="eyebrow" data-rv>03 — Heritage Film</div>
-      <h2 class="display h2" data-rv style="--d:60ms" style="margin-top:16px">A <em>cinematic</em> portrait</h2>
+<!-- 02 The land -->
+<section id="land">
+  <div class="wrap">
+    <div class="secthead">
+      <h2>Zululand, untouched<span class="arrow">&#8594;</span></h2>
+      <span class="secthead__note">02 &middot; The land</span>
     </div>
-
-    <div class="video-wrap" data-rv-scale style="--d:180ms"
-         data-vimeo-id="1184615072"
-         data-vimeo-hash="ad95609d61">
-      <div class="video-placeholder" style="background-image: url('thanda-royal-residence.jpg');">
-        <div class="video-label">Heritage Film</div>
-        <button class="play-btn" aria-label="Play heritage film">
-          <svg width="22" height="26" viewBox="0 0 22 26" fill="none" aria-hidden="true">
-            <path d="M21 13L0 25.9904V0.00961995L21 13Z" fill="#CDAA8B"/>
-          </svg>
-        </button>
-        <div class="caption" style="color:rgba(255,255,255,.72)">Three minutes &middot; Shot on location at Thanda</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ═══════════════════════════════════════════════════════════════
-     ETHOS
-     ═══════════════════════════════════════════════════════════════ -->
-<section class="sec edge-rule">
-  <span class="rl" aria-hidden="true"></span>
-  <div class="container">
-    <div class="grid-2">
+    <div class="duo">
+      <figure class="plate plate--tall">
+        <img src="img/land-zululand.jpg" alt="Overlooking the Zululand wilderness at Thanda" loading="lazy">
+        <figcaption>
+          <span>Zululand &middot; Northern KwaZulu-Natal &middot; South Africa</span>
+          <span>28&deg;01'S, 32&deg;04'E</span>
+        </figcaption>
+      </figure>
       <div>
-        <div class="eyebrow" data-rv>04 — The Ethos</div>
-        <h2 class="display h2" data-rv style="--d:60ms">Built to be <em>stewarded.</em></h2>
-        <p class="body" data-rv style="--d:120ms" style="margin-top:28px">
-          Thanda was never intended to grow quickly. Pierre Delvaux built it as a generational project, a promise to return the land to its natural state and keep it that way for the families who choose to be part of it. Every decision, from architecture to membership, has been filtered through that promise. Ownership here is not a transaction. It is an invitation into a place of peace, nature, and memory that endures across generations.
-        </p>
-      </div>
-
-      <div class="feature-list">
-        <div class="feature-row" data-rv style="--d:160ms">
-          <div class="feature-num">II</div>
-          <div>
-            <div class="feature-head">Conservation as default</div>
-            <div class="feature-copy">A portion of every sale funds rhino anti-poaching, cheetah rehabilitation, and community programmes across the Mduna Royal Reserve. Ownership participates in an active conservation economy.</div>
-          </div>
-        </div>
-        <div class="feature-row" data-rv style="--d:240ms">
-          <div class="feature-num">III</div>
-          <div>
-            <div class="feature-head">Architectural palette</div>
-            <div class="feature-copy">Every residence draws from natural elements: stone, thatch, timber. The design language is curated yet flexible, allowing individual expression within a cohesive aesthetic inspired by the landscape itself.</div>
-          </div>
-        </div>
-        <div class="feature-row" data-rv style="--d:320ms">
-          <div class="feature-num">IV</div>
-          <div>
-            <div class="feature-head">Absolute privacy</div>
-            <div class="feature-copy">No public lodge. No day trippers. No signage at the gate. Members and their guests are the only people who ever see the interior of The Royal Thanda Club.</div>
-          </div>
-        </div>
+        <p>Thanda lies in the ancient heart of Zululand, a landscape that has shaped Southern African history for six hundred years. It is the homeland of King Shaka, a place of legend, lineage and living wildlife. The reserve spans 16,500 hectares of savannah, acacia woodland and wetland, traversed by the Big Five and more than four hundred bird species.</p>
+        <p>Within it, a 386 hectare private estate has been set aside exclusively for The Royal Thanda Club, wrapped inside a sanctuary the size of a small country. Every residence looks out onto unbroken bush. There are no neighbours to see. There are only the animals, the thornveld, and the silence.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- 03 Heritage film -->
+<section id="heritage-film">
+  <div class="wrap">
+    <div class="secthead">
+      <h2>A cinematic portrait<span class="arrow">&#8594;</span></h2>
+      <span class="secthead__note">03 &middot; Heritage film</span>
+    </div>
+    <div class="film">
+      <div class="video-wrap" data-vimeo-id="1184615072" data-vimeo-hash="ad95609d61">
+        <div class="video-placeholder" style="background-image: url('img/poster-heritage.jpg');">
+          <button class="play-btn" aria-label="Play the heritage film">Play the film &#9654;</button>
+        </div>
+      </div>
+      <div class="film__cap">
+        <span>Heritage <span style="color: var(--red);">|</span> A cinematic portrait</span>
+        <span>Three minutes &middot; Shot on location at Thanda</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-<!-- ═══════════════════════════════════════════════════════════════
-     BLEED IMAGE — VILLA AERIAL
-     ═══════════════════════════════════════════════════════════════ -->
-<figure class="bleed" data-rv-clip>
-  <img src="villa-t.jpg" alt="Royal Residence villa at dusk, sited on its own ridge">
-  <figcaption class="bleed-cap caption">
-    <span>The Royal Residence &middot; Sited on its own private ridge</span>
-    <span>Architecture by Robert Adamson</span>
-  </figcaption>
-</figure>
-
-
-<!-- ═══════════════════════════════════════════════════════════════
-     THE RESIDENCE
-     ═══════════════════════════════════════════════════════════════ -->
-<section class="sec">
-  <div class="container">
-    <div class="grid-2">
+<!-- 04 The ethos -->
+<section id="ethos">
+  <div class="wrap">
+    <div class="secthead">
+      <h2>Built to be stewarded<span class="arrow">&#8594;</span></h2>
+      <span class="secthead__note">04 &middot; The ethos</span>
+    </div>
+    <div class="duo">
       <div>
-        <div class="eyebrow" data-rv>05 — The Residence</div>
-        <h2 class="display h2" data-rv style="--d:60ms">The <em>Residences.</em></h2>
-        <p class="body" data-rv style="--d:120ms" style="margin-top:28px">
-          Multiple villa options across different styles and opportunities, each set within protected bushveld corridors. Every residence is delivered fully turnkey, fully furnished, and fully staffed from the day of handover.
-        </p>
-        <p class="body" data-rv style="--d:200ms" style="margin-top:20px">
-          The architectural language is quiet and deliberate. Natural stone walls, hand thatched roofs, oiled timber, unfinished brass, linen in warm earthen tones. The interiors were developed in collaboration with South African ateliers and anchored in the materials of the land itself.
-        </p>
+        <p>Thanda was never intended to grow quickly. Pierre Delvaux built it as a generational project, a promise to return the land to its natural state and keep it that way for the families who choose to be part of it. Every decision, from architecture to membership, has been filtered through that promise. Ownership here is not a transaction. It is an invitation into a place of peace, nature, and memory that endures across generations.</p>
+        <figure class="plate" style="margin-top: 1.6rem;">
+          <img src="img/residence-walkway.jpg" alt="Entrance walkway of a residence, timber and stone with sculpture" loading="lazy">
+          <figcaption><span>The arrival &middot; Stone, timber, and bronze</span></figcaption>
+        </figure>
       </div>
-
-      <div class="specs" data-rv-scale style="--d:140ms">
-        <div class="spec"><div class="spec-label">Bedrooms</div><div class="spec-value">Typically 4 — 6</div></div>
-        <div class="spec"><div class="spec-label">Footprint</div><div class="spec-value">~1,000m²</div></div>
-        <div class="spec"><div class="spec-label">Plot size</div><div class="spec-value">~1.5ha</div></div>
-        <div class="spec"><div class="spec-label">Private pool</div><div class="spec-value">Yes</div></div>
-        <div class="spec"><div class="spec-label">Viewing deck</div><div class="spec-value">Yes</div></div>
-        <div class="spec"><div class="spec-label">Staff</div><div class="spec-value">Full service</div></div>
-        <div class="spec"><div class="spec-label">Delivery</div><div class="spec-value">Turnkey</div></div>
-        <div class="spec"><div class="spec-label">Tenure</div><div class="spec-value">Freehold</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ═══════════════════════════════════════════════════════════════
-     EXPERIENCE FILM — VIDEO 2
-     ═══════════════════════════════════════════════════════════════ -->
-<section class="sec tight" style="background: linear-gradient(180deg, var(--bg) 0%, #0E0E0E 100%);">
-  <div class="container">
-    <div style="text-align:center; max-width: 720px; margin: 0 auto 56px;">
-      <div class="eyebrow" data-rv>06 — The Experience</div>
-      <h2 class="display h2" data-rv style="--d:60ms" style="margin-top:16px">A day at <em>Thanda</em></h2>
-      <p class="body" data-rv style="--d:120ms" style="margin: 20px auto 0;">
-        Morning game drive, private breakfast on the deck, guided conservation tracking, long afternoon stillness, dinner under a Zululand sky.
-      </p>
-    </div>
-
-    <div class="video-wrap" data-rv-scale style="--d:180ms"
-         data-vimeo-id="1184615098"
-         data-vimeo-hash="0b045fa5ac">
-      <div class="video-placeholder" style="background-image: url('cover-game-drive.jpg');">
-        <div class="video-label">Experience Film</div>
-        <button class="play-btn" aria-label="Play experience film">
-          <svg width="22" height="26" viewBox="0 0 22 26" fill="none" aria-hidden="true">
-            <path d="M21 13L0 25.9904V0.00961995L21 13Z" fill="#CDAA8B"/>
-          </svg>
-        </button>
-        <div class="caption" style="color:rgba(255,255,255,.72)">A day at Thanda &middot; Game drives, conservation, stillness</div>
+      <div class="rows">
+        <ol>
+          <li>
+            <span>01</span>
+            <div>
+              <h3>Conservation as default</h3>
+              <p>A portion of every sale funds rhino anti-poaching, cheetah rehabilitation, and community programmes across the Mduna Royal Reserve. Ownership participates in an active conservation economy.</p>
+            </div>
+          </li>
+          <li>
+            <span>02</span>
+            <div>
+              <h3>Architectural palette</h3>
+              <p>Every residence draws from natural elements: stone, thatch, timber. The design language is curated yet flexible, allowing individual expression within a cohesive aesthetic inspired by the landscape itself.</p>
+            </div>
+          </li>
+          <li>
+            <span>03</span>
+            <div>
+              <h3>Absolute privacy</h3>
+              <p>No public lodge. No day trippers. No signage at the gate. Members and their guests are the only people who ever see the interior of The Royal Thanda Club.</p>
+            </div>
+          </li>
+        </ol>
       </div>
     </div>
   </div>
 </section>
 
-
-
-
-<!-- ═══════════════════════════════════════════════════════════════
-     INVESTMENT SUMMARY
-     ═══════════════════════════════════════════════════════════════ -->
-<section class="sec">
-  <div class="container">
-    <div style="max-width: 780px;">
-      <div class="eyebrow" data-rv>07 — Investment Summary</div>
-      <h2 class="display h2" data-rv style="--d:60ms">The <em>numbers</em>.</h2>
-      <p class="body" data-rv style="--d:120ms" style="margin-top:28px">
-        Price range starting from approximately $6 million upwards, depending on size, finishes, and customisation. Each residence is bespoke, and the final investment reflects the individual choices made within the architectural palette.
-      </p>
+<!-- 05 The residences -->
+<section id="residences">
+  <div class="wrap">
+    <div class="secthead">
+      <h2>The Residences<span class="arrow">&#8594;</span></h2>
+      <span class="secthead__note">05 &middot; Fifteen remain</span>
+    </div>
+    <div class="duo">
+      <div>
+        <p>Multiple villa options across different styles and opportunities, each set within protected bushveld corridors. Every residence is delivered fully turnkey, fully furnished, and fully staffed from the day of handover.</p>
+        <p>The architectural language is quiet and deliberate. Natural stone walls, hand thatched roofs, oiled timber, unfinished brass, linen in warm earthen tones. The interiors were developed in collaboration with South African ateliers and anchored in the materials of the land itself.</p>
+      </div>
+      <ul class="spec">
+        <li><span class="k">Bedrooms</span><span class="v">Typically 4 to 6</span></li>
+        <li><span class="k">Footprint</span><span class="v">~1,000 m&sup2;</span></li>
+        <li><span class="k">Plot size</span><span class="v">~1.5 ha</span></li>
+        <li><span class="k">Private pool</span><span class="v">Yes</span></li>
+        <li><span class="k">Viewing deck</span><span class="v">Yes</span></li>
+        <li><span class="k">Staff</span><span class="v">Full service</span></li>
+        <li><span class="k">Delivery</span><span class="v">Turnkey</span></li>
+        <li><span class="k">Tenure</span><span class="v">Freehold</span></li>
+      </ul>
     </div>
 
-    <div style="margin-top:64px" data-rv style="--d:200ms">
-      <table class="invest-table">
-        <thead>
-          <tr>
-            <th style="width:42%">Line item</th>
-            <th>Detail</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Price range</td>
-            <td>From ~$6M USD upwards <span class="sub">Depending on size, finishes, and customisation</span></td>
-          </tr>
-          <tr>
-            <td>Tenure</td>
-            <td>Freehold, South African title <span class="sub">Held through a dedicated property entity, transferable</span></td>
-          </tr>
-          <tr>
-            <td>What is included</td>
-            <td>Land, architecture, construction, interiors, landscaping <span class="sub">Delivered turnkey</span></td>
-          </tr>
-          <tr>
-            <td>Club membership</td>
-            <td>Included. Automatic induction into The Royal Thanda Club <span class="sub">Access to reserve lodges, private island in Tanzania, and a network of global UHNW individuals</span></td>
-          </tr>
-          <tr>
-            <td>Annual levies</td>
-            <td>Staffed maintenance, security, conservation fund <span class="sub">Quoted on request, scaled to plot size</span></td>
-          </tr>
-          <tr>
-            <td>Rental programme</td>
-            <td>Optional, managed by Thanda Safari <span class="sub">Revenue share when residence is not in personal use</span></td>
-          </tr>
-          <tr>
-            <td>Remaining availability</td>
-            <td>15 residences, Phases 1 &amp; 2 <span class="sub">Phase 3 not yet released</span></td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="cards">
+      <div class="card">
+        <div class="card__media"><img src="img/residence-facade.jpg" alt="Residence facade over the pool terrace" loading="lazy"></div>
+        <p class="card__loc">The Royal Thanda Club, Zululand</p>
+        <p class="card__title">The pool terrace</p>
+      </div>
+      <div class="card">
+        <div class="card__media"><img src="img/residence-pool.jpg" alt="Infinity pool looking over unbroken bushveld" loading="lazy"></div>
+        <p class="card__loc">The Royal Thanda Club, Zululand</p>
+        <p class="card__title">Water over the bushveld</p>
+      </div>
+      <div class="card">
+        <div class="card__media"><img src="img/residence-living.jpg" alt="Living hall opening to the reserve" loading="lazy"></div>
+        <p class="card__loc">The Royal Thanda Club, Zululand</p>
+        <p class="card__title">The living hall</p>
+      </div>
     </div>
   </div>
 </section>
 
-
-<!-- ═══════════════════════════════════════════════════════════════
-     FOR THE FORBES NETWORK
-     ═══════════════════════════════════════════════════════════════ -->
-<section class="sec edge-rule" style="background:#0E0E0E;">
-  <span class="rl" aria-hidden="true"></span>
-  <div class="container">
-    <div style="max-width: 780px; margin-bottom: 56px;">
-      <div class="eyebrow" data-rv>08 — The Programme</div>
-      <h2 class="display h2" data-rv style="--d:60ms">For the <em>Forbes network</em>.</h2>
-      <p class="body" data-rv style="--d:120ms" style="margin-top:28px">
-        We are strategically engaging a select number of Forbes Global Properties network members to activate the sales plan over the course of 2026.
-      </p>
+<!-- 06 Experience film -->
+<section id="experience-film">
+  <div class="wrap">
+    <div class="secthead">
+      <h2>A day at Thanda<span class="arrow">&#8594;</span></h2>
+      <span class="secthead__note">06 &middot; The experience</span>
     </div>
-
-    <div class="feature-list" style="max-width: 920px;">
-      <div class="feature-row" data-rv>
-        <div class="feature-num">01</div>
-        <div>
-          <div class="feature-head">An on site experience</div>
-          <div class="feature-copy">Network members are flown to Thanda and hosted, where they meet Pierre and Keegan directly and experience the offering in a fully curated manner.</div>
+    <div class="film">
+      <div class="video-wrap" data-vimeo-id="1184615098" data-vimeo-hash="0b045fa5ac">
+        <div class="video-placeholder" style="background-image: url('img/poster-experience.jpg');">
+          <button class="play-btn" aria-label="Play the experience film">Play the film &#9654;</button>
         </div>
       </div>
-      <div class="feature-row" data-rv style="--d:80ms">
-        <div class="feature-num">02</div>
-        <div>
-          <div class="feature-head">A clear path to your clients</div>
-          <div class="feature-copy">Every advisor receives the full marketing toolkit: heritage film, photography, brochure, and pitch deck, all co branded for your use.</div>
-        </div>
+      <div class="film__cap">
+        <span>Experience <span style="color: var(--red);">|</span> A day at Thanda</span>
+        <span>Morning game drive, guided conservation tracking, dinner under a Zululand sky</span>
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- ═══════════════════════════════════════════════════════════════
-     LEADERSHIP
-     ═══════════════════════════════════════════════════════════════ -->
-<section class="sec">
-  <div class="container">
-    <div style="max-width:780px;">
-      <div class="eyebrow" data-rv>09 — Leadership</div>
-      <h2 class="display h2" data-rv style="--d:60ms">Who you are <em>working with</em>.</h2>
+<!-- 07 The numbers -->
+<section id="numbers">
+  <div class="wrap">
+    <div class="secthead">
+      <h2>The numbers<span class="arrow">&#8594;</span></h2>
+      <span class="secthead__note">07 &middot; Investment summary</span>
     </div>
+    <p style="max-width: 68ch; margin: 0 0 2rem;">Price range starting from approximately $6 million upwards, depending on size, finishes, and customisation. Each residence is bespoke, and the final investment reflects the individual choices made within the architectural palette.</p>
+    <table class="invest">
+      <thead>
+        <tr>
+          <th style="width: 34%;">Line item</th>
+          <th>Detail</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Price range</td>
+          <td>From ~$6M USD upwards <span class="sub">Depending on size, finishes, and customisation</span></td>
+        </tr>
+        <tr>
+          <td>Tenure</td>
+          <td>Freehold, South African title <span class="sub">Held through a dedicated property entity, transferable</span></td>
+        </tr>
+        <tr>
+          <td>What is included</td>
+          <td>Land, architecture, construction, interiors, landscaping <span class="sub">Delivered turnkey</span></td>
+        </tr>
+        <tr>
+          <td>Club membership</td>
+          <td>Included. Automatic induction into The Royal Thanda Club <span class="sub">Access to reserve lodges, private island in Tanzania, and a network of global UHNW individuals</span></td>
+        </tr>
+        <tr>
+          <td>Annual levies</td>
+          <td>Staffed maintenance, security, conservation fund <span class="sub">Quoted on request, scaled to plot size</span></td>
+        </tr>
+        <tr>
+          <td>Rental programme</td>
+          <td>Optional, managed by Thanda Safari <span class="sub">Revenue share when residence is not in personal use</span></td>
+        </tr>
+        <tr>
+          <td>Remaining availability</td>
+          <td>15 residences, Phases 1 and 2 <span class="sub">Phase 3 not yet released</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
 
-    <div class="grid-2" style="margin-top:64px; gap:56px;">
-      <div data-rv>
-        <div class="caption" style="color:var(--gold); margin-bottom:8px;">Thanda Group</div>
-        <h3 class="display h3" style="color:var(--fg);">Pierre Delvaux</h3>
-        <p class="body" style="margin-top:16px;">CEO of Thanda Group. Building the reserve, its conservation programmes, and its architectural language. Pierre personally hosts every Royal Residence purchase.</p>
-      </div>
-      <div data-rv style="--d:80ms">
-        <div class="caption" style="color:var(--gold); margin-bottom:8px;">South Africa | Forbes Global Properties</div>
-        <h3 class="display h3" style="color:var(--fg);">Keegan Steyn</h3>
-        <p class="body" style="margin-top:16px;">Founder of South Africa | Forbes Global Properties and listing partner for Thanda Royal Residences. Manages the introduction, the pipeline, and the co brokerage relationship with the network.</p>
+<!-- 08 The programme -->
+<section id="programme">
+  <div class="wrap">
+    <div class="secthead">
+      <h2>For the Forbes network<span class="arrow">&#8594;</span></h2>
+      <span class="secthead__note">08 &middot; The programme</span>
+    </div>
+    <div class="duo">
+      <p class="duo__lead">We are strategically engaging a select number of Forbes Global Properties network members to activate the sales plan over the course of 2026.</p>
+      <div class="rows">
+        <ol>
+          <li>
+            <span>01</span>
+            <div>
+              <h3>An on site experience</h3>
+              <p>Network members are flown to Thanda and hosted, where they meet Pierre and Keegan directly and experience the offering in a fully curated manner.</p>
+            </div>
+          </li>
+          <li>
+            <span>02</span>
+            <div>
+              <h3>A clear path to your clients</h3>
+              <p>Every advisor receives the full marketing toolkit: heritage film, photography, brochure, and pitch deck, all co branded for your use.</p>
+            </div>
+          </li>
+        </ol>
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- ═══════════════════════════════════════════════════════════════
-     AFFILIATION — LHW MEMBERSHIP
-     ═══════════════════════════════════════════════════════════════ -->
-<aside class="affiliation" aria-label="Affiliations">
-  <div class="affiliation-row">
-    <div class="lhw-mark" data-rv>
-      <img src="lhw.png" alt="The Leading Hotels of the World, established 1928" width="1800" height="846">
+<!-- 09 Leadership -->
+<section id="leadership">
+  <div class="wrap">
+    <div class="secthead">
+      <h2>Who you are working with<span class="arrow">&#8594;</span></h2>
+      <span class="secthead__note">09 &middot; Leadership</span>
     </div>
-
-    <div class="affiliation-text" data-rv style="--d:120ms">
-      <p class="affiliation-eyebrow">Affiliated since 2007</p>
-      <p class="affiliation-copy">
-        Thanda Safari is a member of <em>The Leading Hotels of the World,</em> the invitation-only collection of independent luxury properties recognised for uncompromising craft, singular location, and genuine character since 1928.
-      </p>
+    <div class="people">
+      <div>
+        <span class="kicker">Thanda Group</span>
+        <h3>Pierre Delvaux</h3>
+        <p>CEO of Thanda Group. Building the reserve, its conservation programmes, and its architectural language. Pierre personally hosts every Royal Residence purchase.</p>
+      </div>
+      <div>
+        <span class="kicker">South Africa | Forbes Global Properties</span>
+        <h3>Keegan Steyn</h3>
+        <p>Founder of South Africa | Forbes Global Properties and listing partner for Thanda Royal Residences. Manages the introduction, the pipeline, and the co brokerage relationship with the network.</p>
+      </div>
     </div>
+  </div>
+</section>
+
+<!-- Affiliation -->
+<aside class="affil" aria-label="Affiliations">
+  <div class="wrap affil__row">
+    <img src="lhw.png" alt="The Leading Hotels of the World, established 1928">
+    <p><span class="kicker">Affiliated since 2007</span>Thanda Safari is a member of The Leading Hotels of the World, the invitation only collection of independent luxury properties recognised for uncompromising craft, singular location, and genuine character since 1928.</p>
   </div>
 </aside>
 
-<!-- ═══════════════════════════════════════════════════════════════
-     CTA
-     ═══════════════════════════════════════════════════════════════ -->
-<section class="cta-section">
-  <div class="container">
-    <div class="eyebrow" data-rv>10 — Visit</div>
-    <h2 class="display" data-rv style="--d:60ms" style="font-size:clamp(44px, 8vw, 96px); line-height:1.02; margin-top:20px; max-width:18ch;">
-      Come and <em>see it for yourself.</em>
-    </h2>
-    <p class="body" data-rv style="--d:140ms" style="margin-top:28px; max-width: 580px;">
-      Let us know your availability and the travel team will arrange and cover all travel costs accordingly.
-    </p>
-
-    <div class="contact-card" data-rv-scale style="--d:240ms; margin-top:32px;">
-      <div class="contact-row">
-        <div class="caption">Direct contact</div>
-        <div class="value">Keegan Steyn</div>
-      </div>
-      <div class="contact-row">
-        <div class="caption">Email</div>
-        <div class="value"><a href="mailto:keegan@southafricafgp.com">keegan@southafricafgp.com</a></div>
-      </div>
-      <div class="contact-row">
-        <div class="caption">WhatsApp</div>
-        <div class="value"><a href="https://wa.me/27828200414?text=Hi%20Keegan%2C%20I%27d%20like%20to%20arrange%20a%20visit%20to%20Thanda%20Royal%20Residences." target="_blank" rel="noopener">+27 82 820 0414</a></div>
-      </div>
-      <div style="margin-top:8px;">
-        <a href="mailto:keegan@southafricafgp.com?subject=Thanda%20Royal%20Residences%2C%20Network%20Member%20Visit" class="btn">
-          <span>Request a visit</span>
-          <span class="arrow">&rarr;</span>
-        </a>
-      </div>
+<!-- 10 Visit -->
+<section class="office" id="visit">
+  <div class="wrap office__grid">
+    <div>
+      <span class="kicker">10 &middot; Visit</span>
+      <h2>Come and see it for yourself.</h2>
+      <p>Let us know your availability and the travel team will arrange and cover all travel costs accordingly.</p>
+    </div>
+    <div>
+      <ul class="contact">
+        <li><span class="k">Direct contact</span><span class="v">Keegan Steyn</span></li>
+        <li><span class="k">Email</span><span class="v"><a href="mailto:keegan@southafricafgp.com">keegan@southafricafgp.com</a></span></li>
+        <li><span class="k">WhatsApp</span><span class="v"><a href="https://wa.me/27828200414?text=Hi%20Keegan%2C%20I%27d%20like%20to%20arrange%20a%20visit%20to%20Thanda%20Royal%20Residences." target="_blank" rel="noopener">+27 82 820 0414</a></span></li>
+      </ul>
+      <a class="chip chip--red" href="mailto:keegan@southafricafgp.com?subject=Thanda%20Royal%20Residences%2C%20Network%20Member%20Visit">Request a visit &#8594;</a>
     </div>
   </div>
 </section>
 
-
 </main>
 
-<!-- ═══════════════════════════════════════════════════════════════
-     FOOTER
-     ═══════════════════════════════════════════════════════════════ -->
+<!-- Footer -->
 <footer class="footer">
-  <div class="footer-brand">
-    <img src="thada-logo.webp" alt="Thanda Safari" style="width:36px; opacity:.8">
-    <span class="divider" aria-hidden="true"></span>
-    <img src="logo-white.png" alt="Forbes Global Properties" style="width:96px; opacity:.8">
+  <div class="wrap">
+    <div class="footer__row">
+      <div class="footer__brand">South Africa <span>|</span> Forbes Global Properties</div>
+      <nav class="footer__nav" aria-label="Footer">
+        <a href="#top">Back to top</a>
+        <a href="mailto:keegan@southafricafgp.com">Contact</a>
+        <a href="https://wa.me/27828200414" target="_blank" rel="noopener">WhatsApp</a>
+      </nav>
+    </div>
+    <p class="footer__legal">
+      Confidential, for circulation within the Forbes Global Properties network only. Presented with Thanda Group.<br>
+      South Africa | Forbes Global Properties is an exclusive member of Forbes Global Properties. Forbes&reg; is a registered trademark used under license.
+    </p>
   </div>
-  <nav class="footer-nav" aria-label="Legal">
-    <a href="#top" class="footer-link">Back to top</a>
-    <span class="footer-sep" aria-hidden="true">·</span>
-    <a href="mailto:keegan@southafricafgp.com" class="footer-link">Contact</a>
-    <span class="footer-sep" aria-hidden="true">·</span>
-    <a href="#" class="footer-link">Privacy</a>
-    <span class="footer-sep" aria-hidden="true">·</span>
-    <a href="#" class="footer-link">Terms</a>
-  </nav>
-  <p class="caption">
-    Confidential &middot; For circulation within the Forbes network only
-  </p>
 </footer>
 
-
-<!-- ═══════════════════════════════════════════════════════════════
-     SCRIPTS — IntersectionObserver reveals, hero parallax
-     ═══════════════════════════════════════════════════════════════ -->
+<!-- Vimeo click-to-load: swap poster for iframe on play -->
 <script>
 (() => {
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* Reveal animations disabled — nothing to wire up. */
-
-  /* -----------------------------------------------------------
-     Hero parallax — lightweight, uses rAF, translateY only
-     ----------------------------------------------------------- */
-  if (!prefersReduced) {
-    const hero = document.querySelector('.hero');
-    if (hero) {
-      let ticking = false;
-      let lastY = 0;
-
-      const update = () => {
-        const rect = hero.getBoundingClientRect();
-        if (rect.bottom < 0 || rect.top > window.innerHeight) {
-          ticking = false;
-          return;
-        }
-        const y = Math.max(-rect.top, 0);
-        const translate = Math.min(y * 0.22, 160);
-        // Transform the pseudo-element via CSS variable on hero
-        hero.style.setProperty('--hero-parallax', `${translate}px`);
-        ticking = false;
-      };
-
-      // Because ::before can't be directly transformed via JS,
-      // we fake it with a data attr and a CSS companion. Inject a style tag:
-      const style = document.createElement('style');
-      style.textContent = `.hero::before { transform: scale(1.05) translate3d(0, var(--hero-parallax, 0px), 0); }`;
-      document.head.appendChild(style);
-
-      window.addEventListener('scroll', () => {
-        if (!ticking) {
-          requestAnimationFrame(update);
-          ticking = true;
-          lastY = window.scrollY;
-        }
-      }, { passive: true });
-    }
-  }
-
-  /* -----------------------------------------------------------
-     Scroll progress bar — top strip, scaleX only for performance
-     ----------------------------------------------------------- */
-  const progress = document.getElementById('progress');
-  if (progress) {
-    let ticking = false;
-    const updateProgress = () => {
-      const h = document.documentElement;
-      const scrolled = (h.scrollTop || document.body.scrollTop) /
-        (h.scrollHeight - h.clientHeight);
-      progress.style.transform = `scaleX(${Math.min(Math.max(scrolled, 0), 1)})`;
-      ticking = false;
-    };
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        requestAnimationFrame(updateProgress);
-        ticking = true;
-      }
-    }, { passive: true });
-    updateProgress();
-  }
-
-  /* -----------------------------------------------------------
-     Spotlight border — cursor-reactive gold glow on contact card.
-     Only active on devices with fine pointer.
-     ----------------------------------------------------------- */
-  if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
-    document.querySelectorAll('.contact-card').forEach(card => {
-      card.addEventListener('pointermove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const mx = ((e.clientX - rect.left) / rect.width) * 100;
-        const my = ((e.clientY - rect.top) / rect.height) * 100;
-        card.style.setProperty('--mx', `${mx}%`);
-        card.style.setProperty('--my', `${my}%`);
-      });
-    });
-  }
-
-  /* -----------------------------------------------------------
-     Vimeo click-to-load — swap placeholder for iframe only when
-     the user presses play. Uses Vimeo Player API to detect the
-     `ended` event and replace the end-screen "Up Next" overlay
-     with our own clean re-play state.
-     ----------------------------------------------------------- */
-  let vimeoApiLoading = null;
-  const ensureVimeoApi = () => {
-    if (window.Vimeo && window.Vimeo.Player) return Promise.resolve();
-    if (vimeoApiLoading) return vimeoApiLoading;
-    vimeoApiLoading = new Promise((resolve, reject) => {
-      const s = document.createElement('script');
-      s.src = 'https://player.vimeo.com/api/player.js';
-      s.onload = resolve;
-      s.onerror = reject;
-      document.head.appendChild(s);
-    });
-    return vimeoApiLoading;
-  };
-
   const buildIframe = (wrap) => {
     const id = wrap.dataset.vimeoId;
     const hash = wrap.dataset.vimeoHash;
@@ -1973,7 +695,7 @@ img, video { display: block; max-width: 100%; height: auto; }
       title: '0',
       byline: '0',
       portrait: '0',
-      color: 'CDAA8B',
+      color: 'D8361E',
       autoplay: '1',
       responsive: '1',
       transparent: '0',
@@ -1984,55 +706,22 @@ img, video { display: block; max-width: 100%; height: auto; }
     iframe.setAttribute('frameborder', '0');
     iframe.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture; clipboard-write');
     iframe.setAttribute('allowfullscreen', '');
-    iframe.setAttribute('title', wrap.querySelector('.video-label')?.textContent || 'Film');
+    iframe.setAttribute('title', wrap.closest('section')?.querySelector('h2')?.textContent || 'Film');
     return iframe;
-  };
-
-  const attachEndHandler = (wrap, iframe, savedPlaceholderHTML) => {
-    ensureVimeoApi().then(() => {
-      const player = new Vimeo.Player(iframe);
-      player.on('ended', () => {
-        // Fade out iframe quickly before the Vimeo Up Next overlay appears
-        iframe.style.transition = 'opacity 240ms ease';
-        iframe.style.opacity = '0';
-        setTimeout(() => {
-          player.destroy().catch(() => {});
-          iframe.remove();
-          // Restore the original placeholder so user can replay
-          wrap.insertAdjacentHTML('beforeend', savedPlaceholderHTML);
-          // Re-wire the new placeholder for click-to-replay
-          const newPlaceholder = wrap.querySelector('.video-placeholder');
-          if (newPlaceholder) {
-            newPlaceholder.style.opacity = '0';
-            newPlaceholder.classList.remove('is-loading');
-            requestAnimationFrame(() => {
-              newPlaceholder.style.transition = 'opacity 380ms ease';
-              newPlaceholder.style.opacity = '1';
-            });
-            wirePlaceholder(wrap, newPlaceholder);
-          }
-        }, 240);
-      });
-    }).catch((err) => {
-      console.warn('Vimeo API load failed, end-screen will show default:', err);
-    });
   };
 
   const loadVimeo = (wrap) => {
     if (!wrap.dataset.vimeoId) return;
     const placeholder = wrap.querySelector('.video-placeholder');
-    const savedHTML = placeholder ? placeholder.outerHTML : '';
     const iframe = buildIframe(wrap);
     if (placeholder) {
       placeholder.classList.add('is-loading');
       setTimeout(() => {
         placeholder.remove();
         wrap.appendChild(iframe);
-        attachEndHandler(wrap, iframe, savedHTML);
       }, 180);
     } else {
       wrap.appendChild(iframe);
-      attachEndHandler(wrap, iframe, savedHTML);
     }
   };
 
