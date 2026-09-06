@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strategic Collaboration Proposal — Forbes Africa</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,200;0,300;0,400;0,450;0,500;0,600;1,200;1,300&display=swap" rel="stylesheet">
+
+<style>
+@font-face {
+  font-family: 'FreightNeo';
+  src: url('FreightNeo-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'FreightNeo';
+  src: url('FreightNeo-Book.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'FreightNeo';
+  src: url('FreightNeo-Semi.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --bg: #0A0A0A;
+  --bg-soft: #121212;
+  --fg: #FFFFFF;
+  --fg-muted: rgba(255,255,255,.72);
+  --fg-dim: rgba(255,255,255,.5);
+  --fg-faint: rgba(255,255,255,.3);
+  --fg-slate: #8A8F96;
+  --gold: #CDAA8B;
+  --gold-soft: rgba(205,170,139,.22);
+  --red: #C8352E;
+  --hair: rgba(255,255,255,.06);
+  --hair-gold: rgba(205,170,139,.28);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Work Sans', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Film grain overlay
+   ═══════════════════════════════════════════════════════════ */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  opacity: 0.22;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.85 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Page structure — A4 portrait (794 x 1123 px at 96dpi)
+   ═══════════════════════════════════════════════════════════ */
+.pg {
+  width: 794px;
+  height: 1123px;
+  min-height: 1123px;
+  max-height: 1123px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 72px;
+}
+
+.pg + .pg { border-top: 1px solid var(--hair); }
+
+/* ═══════════════════════════════════════════════════════════
+   Typography
+   ═══════════════════════════════════════════════════════════ */
+.display {
+  font-family: 'FreightNeo', Georgia, serif;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+.display em { font-style: italic; color: var(--gold); }
+
+.t2 {
+  font-size: 38px;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+}
+
+.eyebrow {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 450;
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.sn {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 450;
+  font-size: 8px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+}
+
+.body {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--fg-muted);
+  max-width: 580px;
+}
+
+.body-sm {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--fg-muted);
+}
+
+.body strong { color: var(--fg); font-weight: 500; }
+
+.caption {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--fg-dim);
+  line-height: 1.55;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Layout helpers
+   ═══════════════════════════════════════════════════════════ */
+.flex-col { display: flex; flex-direction: column; }
+.gap-12 { gap: 12px; }
+.gap-16 { gap: 16px; }
+.gap-20 { gap: 20px; }
+.gap-24 { gap: 24px; }
+.gap-32 { gap: 32px; }
+.gap-40 { gap: 40px; }
+.gap-48 { gap: 48px; }
+.gap-56 { gap: 56px; }
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+/* Gold hairline rule */
+.rule {
+  width: 48px;
+  height: 1px;
+  background: var(--hair-gold);
+}
+
+.rule-full {
+  width: 100%;
+  height: 1px;
+  background: var(--hair);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Stat blocks
+   ═══════════════════════════════════════════════════════════ */
+.stat-value {
+  font-family: 'FreightNeo', Georgia, serif;
+  font-weight: 300;
+  font-size: 36px;
+  line-height: 1.0;
+  color: var(--gold);
+  letter-spacing: -0.02em;
+}
+
+.stat-label {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 450;
+  font-size: 8px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+  margin-top: 10px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Phase cards
+   ═══════════════════════════════════════════════════════════ */
+.phase-card {
+  background: var(--bg-soft);
+  border: 1px solid var(--hair);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.phase-num {
+  font-family: 'FreightNeo', Georgia, serif;
+  font-weight: 300;
+  font-size: 28px;
+  color: var(--gold);
+  line-height: 1.0;
+}
+
+.phase-title {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fg);
+}
+
+.phase-desc {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--fg-muted);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Bullet list
+   ═══════════════════════════════════════════════════════════ */
+.bullet-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.bullet-list li {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--fg-muted);
+  padding-left: 18px;
+  position: relative;
+}
+
+.bullet-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 5px;
+  height: 5px;
+  background: var(--gold);
+  border-radius: 0;
+}
+
+.bullet-list li strong {
+  color: var(--fg);
+  font-weight: 500;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Advantage columns
+   ═══════════════════════════════════════════════════════════ */
+.adv-block {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.adv-title {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 450;
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Cover page
+   ═══════════════════════════════════════════════════════════ */
+.cover {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 80px 72px;
+  background: var(--bg);
+}
+
+.cover-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+}
+
+.cover-logos img {
+  height: 56px;
+  opacity: 0.9;
+}
+
+.cover-divider {
+  width: 1px;
+  height: 48px;
+  background: var(--hair-gold);
+}
+
+.cover-forbes-africa {
+  font-family: 'FreightNeo', Georgia, serif;
+  font-weight: 400;
+  font-size: 32px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg);
+  opacity: 0.9;
+}
+
+.cover-title-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.cover-rule-h {
+  width: 64px;
+  height: 1px;
+  background: var(--hair-gold);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Footer strip
+   ═══════════════════════════════════════════════════════════ */
+.pg-footer {
+  position: absolute;
+  bottom: 36px;
+  left: 72px;
+  right: 72px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Red top accent
+   ═══════════════════════════════════════════════════════════ */
+.red-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--red);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Vision page
+   ═══════════════════════════════════════════════════════════ */
+.vision-quote {
+  font-family: 'FreightNeo', Georgia, serif;
+  font-weight: 300;
+  font-size: 30px;
+  line-height: 1.35;
+  color: var(--fg);
+  max-width: 560px;
+  letter-spacing: -0.01em;
+}
+
+.vision-quote em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Print styles — A4 portrait
+   ═══════════════════════════════════════════════════════════ */
+@page {
+  size: 794px 1123px;
+  margin: 0;
+}
+
+@media print {
+  html, body { width: 794px; height: auto; }
+  .grain { display: none; }
+  .pg {
+    page-break-after: always;
+    page-break-inside: avoid;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 1 — Cover
+     ═══════════════════════════════════════════════════════════ -->
+<section class="pg cover">
+  <div class="red-top"></div>
+
+  <div class="flex-col gap-48" style="align-items: center;">
+    <!-- Dual logos -->
+    <div class="cover-logos">
+      <img src="logo-white.png" alt="South Africa | Forbes Global Properties">
+      <div class="cover-divider"></div>
+      <span class="cover-forbes-africa">Forbes Africa</span>
+    </div>
+
+    <!-- Title block -->
+    <div class="cover-title-row">
+      <div class="cover-rule-h"></div>
+      <span class="eyebrow" style="margin-top: 4px;">Strategic Collaboration Proposal</span>
+      <h1 class="display" style="font-size: 52px; line-height: 1.1; letter-spacing: -0.02em; max-width: 560px; text-align: center; margin-top: 8px;">
+        Media, Real Estate <em>&</em><br>Premium Experiences
+      </h1>
+      <div class="cover-rule-h" style="margin-top: 4px;"></div>
+    </div>
+
+    <!-- Subtitle -->
+    <div class="body" style="text-align: center; max-width: 440px;">
+      A roadmap for building a long-term partnership targeting UHNW individuals through Forbes authority and premium property access across Africa.
+    </div>
+  </div>
+
+  <div class="pg-footer">
+    <span class="sn">Confidential</span>
+    <span class="sn">April 2026</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 2 — Introduction & Context
+     ═══════════════════════════════════════════════════════════ -->
+<section class="pg flex-col gap-40" style="justify-content: center;">
+  <div class="red-top"></div>
+  <div class="flex-col gap-16">
+    <span class="eyebrow">01</span>
+    <h2 class="display t2">Introduction <em>&</em> Context</h2>
+  </div>
+  <div class="body">
+    This document outlines the strategic collaboration between South Africa | Forbes Global Properties (SA | FGP) and Forbes Africa. It highlights key alignment areas, collaboration opportunities, and a roadmap for building a long-term partnership.
+  </div>
+  <div class="rule"></div>
+  <div class="grid-2">
+    <div class="flex-col gap-12">
+      <span class="eyebrow">SA | Forbes Global Properties</span>
+      <p class="body-sm">Exclusive South African partner focusing on ultra-high-end residential real estate targeting UHNW individuals.</p>
+    </div>
+    <div class="flex-col gap-12">
+      <span class="eyebrow">Forbes Africa</span>
+      <p class="body-sm">A leading media platform across Africa with print, digital, TV, and event verticals.</p>
+    </div>
+  </div>
+  <div class="pg-footer">
+    <span class="sn">South Africa | Forbes Global Properties</span>
+    <span class="sn">02</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 3 — Strategic Positioning
+     ═══════════════════════════════════════════════════════════ -->
+<section class="pg flex-col gap-40" style="justify-content: center;">
+  <div class="red-top"></div>
+  <div class="flex-col gap-16">
+    <span class="eyebrow">02</span>
+    <h2 class="display t2">Strategic Positioning</h2>
+  </div>
+  <div class="body">
+    Both businesses target high-net-worth audiences and operate within premium, global positioning. The alignment is natural, the opportunity significant.
+  </div>
+  <div class="rule"></div>
+  <div class="grid-3">
+    <div class="flex-col gap-12">
+      <div class="stat-value">UHNW</div>
+      <div class="stat-label">Shared Target Audience</div>
+    </div>
+    <div class="flex-col gap-12">
+      <div class="stat-value">Africa</div>
+      <div class="stat-label">Market Coverage</div>
+    </div>
+    <div class="flex-col gap-12">
+      <div class="stat-value">Premium</div>
+      <div class="stat-label">Global Positioning</div>
+    </div>
+  </div>
+  <div class="pg-footer">
+    <span class="sn">South Africa | Forbes Global Properties</span>
+    <span class="sn">03</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 4 — Key Collaboration Areas
+     ═══════════════════════════════════════════════════════════ -->
+<section class="pg flex-col gap-40" style="justify-content: center;">
+  <div class="red-top"></div>
+  <div class="flex-col gap-16">
+    <span class="eyebrow">03</span>
+    <h2 class="display t2">Key Collaboration Areas</h2>
+  </div>
+  <div class="flex-col gap-24">
+    <ul class="bullet-list">
+      <li><strong>Press Release & Launch</strong><br>Forbes Africa to support publication, interviews, and amplification of the May launch.</li>
+      <li><strong>Property Marketing</strong><br>Editorial features for storytelling and paid placements for listings.</li>
+      <li><strong>Cape Town Event</strong><br>Joint execution of a high-impact UHNW event with media amplification and sponsorship opportunities.</li>
+      <li><strong>Long-Term Synergy</strong><br>Ongoing content, audience access, and cross-market collaboration.</li>
+    </ul>
+  </div>
+  <div class="pg-footer">
+    <span class="sn">South Africa | Forbes Global Properties</span>
+    <span class="sn">04</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 5 — Business Model Alignment
+     ═══════════════════════════════════════════════════════════ -->
+<section class="pg flex-col gap-40" style="justify-content: center;">
+  <div class="red-top"></div>
+  <div class="flex-col gap-16">
+    <span class="eyebrow">04</span>
+    <h2 class="display t2">Business Model Alignment</h2>
+  </div>
+  <div class="body">
+    Forbes Global Properties operates on a membership model, while Forbes Africa generates revenue through media, advertising, and events. The partnership unlocks monetisation across content, exposure, and sponsorship.
+  </div>
+  <div class="rule"></div>
+  <div class="flex-col gap-28" style="gap: 28px;">
+    <div class="flex-col gap-10" style="gap: 10px;">
+      <span class="eyebrow">SA | FGP Revenue</span>
+      <p class="body-sm">Membership model, property transaction commissions, network access fees.</p>
+    </div>
+    <div class="rule-full"></div>
+    <div class="flex-col gap-10" style="gap: 10px;">
+      <span class="eyebrow">Forbes Africa Revenue</span>
+      <p class="body-sm">Media, advertising, events, content partnerships, sponsorship.</p>
+    </div>
+    <div class="rule-full"></div>
+    <div class="flex-col gap-10" style="gap: 10px;">
+      <span class="eyebrow">Shared Monetisation</span>
+      <p class="body-sm">Content, exposure, sponsorship across both audiences.</p>
+    </div>
+  </div>
+  <div class="pg-footer">
+    <span class="sn">South Africa | Forbes Global Properties</span>
+    <span class="sn">05</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 6 — Strategic Advantages
+     ═══════════════════════════════════════════════════════════ -->
+<section class="pg flex-col gap-40" style="justify-content: center;">
+  <div class="red-top"></div>
+  <div class="flex-col gap-16">
+    <span class="eyebrow">05</span>
+    <h2 class="display t2">Strategic Advantages</h2>
+  </div>
+  <div class="grid-3">
+    <div class="adv-block">
+      <div class="adv-title">For SA | FGP</div>
+      <div class="rule"></div>
+      <ul class="bullet-list">
+        <li>Credibility and brand authority across Africa</li>
+        <li>Reach into UHNW African audience</li>
+        <li>Access to Forbes Africa media channels</li>
+      </ul>
+    </div>
+    <div class="adv-block">
+      <div class="adv-title">For Forbes Africa</div>
+      <div class="rule"></div>
+      <ul class="bullet-list">
+        <li>Entry into ultra-prime real estate content</li>
+        <li>Premium property marketing pipeline</li>
+        <li>High-value sponsorship opportunities</li>
+      </ul>
+    </div>
+    <div class="adv-block">
+      <div class="adv-title">Shared</div>
+      <div class="rule"></div>
+      <ul class="bullet-list">
+        <li>Stronger positioning within the global Forbes ecosystem</li>
+        <li>Cross-market audience growth</li>
+        <li>Premium brand alignment</li>
+      </ul>
+    </div>
+  </div>
+  <div class="pg-footer">
+    <span class="sn">South Africa | Forbes Global Properties</span>
+    <span class="sn">06</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 7 — Action Plan (3 Phases)
+     ═══════════════════════════════════════════════════════════ -->
+<section class="pg flex-col gap-40" style="justify-content: center;">
+  <div class="red-top"></div>
+  <div class="flex-col gap-16">
+    <span class="eyebrow">06</span>
+    <h2 class="display t2">Action Plan</h2>
+  </div>
+  <div class="flex-col gap-20">
+    <div class="phase-card">
+      <div class="phase-num">01</div>
+      <div class="phase-title">Launch</div>
+      <div class="phase-desc">PR and media alignment. Forbes Africa supports publication, interviews, and amplification of the May launch.</div>
+    </div>
+    <div class="phase-card">
+      <div class="phase-num">02</div>
+      <div class="phase-title">Content Collaboration</div>
+      <div class="phase-desc">Editorial and paid strategy. Ongoing storytelling features, property listings, and premium content production.</div>
+    </div>
+    <div class="phase-card">
+      <div class="phase-num">03</div>
+      <div class="phase-title">Event Execution</div>
+      <div class="phase-desc">Cape Town flagship event. Joint UHNW gathering with media amplification, sponsorship, and long-term collaboration pipeline.</div>
+    </div>
+  </div>
+  <div class="pg-footer">
+    <span class="sn">South Africa | Forbes Global Properties</span>
+    <span class="sn">07</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 8 — Strategic Vision & Closing
+     ═══════════════════════════════════════════════════════════ -->
+<section class="pg flex-col gap-48" style="justify-content: center; align-items: center; text-align: center;">
+  <div class="red-top"></div>
+  <div class="flex-col gap-16" style="align-items: center;">
+    <span class="eyebrow">07</span>
+    <div class="rule" style="margin: 0 auto;"></div>
+  </div>
+  <div class="vision-quote" style="text-align: center;">
+    To build the leading <em>media and real estate collaboration platform</em> in Africa, targeting UHNW individuals through Forbes authority and premium property access.
+  </div>
+  <div class="rule"></div>
+  <div class="body" style="text-align: center; max-width: 480px;">
+    The partnership begins with a strong launch, followed by content-driven momentum and scaling through strategic events and long-term collaboration.
+  </div>
+  <div class="pg-footer">
+    <span class="sn">South Africa | Forbes Global Properties</span>
+    <span class="sn">Confidential — April 2026</span>
+  </div>
+</section>
+
+</body>
+</html>
